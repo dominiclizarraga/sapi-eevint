@@ -72,3 +72,5 @@ group :development, :test do
   gem "webdrivers"
   gem "faker"
 end
+
+gem "tailwindcss-rails", "~> 2.0"
