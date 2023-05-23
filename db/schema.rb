@@ -25,7 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_002554) do
   create_table "elevators", force: :cascade do |t|
     t.string "customer_name"
     t.float "selling_price"
-    t.string "type"
+    t.string "elevator_type"
     t.text "description"
     t.string "subdivision"
     t.date "eng_required_estimate"

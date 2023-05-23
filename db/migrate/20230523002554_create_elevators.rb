@@ -3,7 +3,7 @@ class CreateElevators < ActiveRecord::Migration[7.0]
     create_table :elevators do |t|
       t.string :customer_name
       t.float :selling_price
-      t.string :type
+      t.string :elevator_type
       t.text :description
       t.string :subdivision
       t.date :eng_required_estimate

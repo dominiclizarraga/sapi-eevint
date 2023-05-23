@@ -7,11 +7,11 @@
 #  actual_start             :date
 #  customer_name            :string
 #  description              :text
+#  elevator_type            :string
 #  eng_required_estimate    :date
 #  eng_required_programming :date
 #  selling_price            :float
 #  subdivision              :string
-#  type                     :string
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  contract_id              :bigint           not null
@@ -29,7 +29,7 @@
 #
 class Elevator < ApplicationRecord
   validates :customer_name, :description, 
-            :subdivision, :type, :selling_price,  
+            :subdivision, :elevator_type, :selling_price,  
             :actual_start, :actual_end, :eng_required_estimate, 
             :eng_required_programming, presence: true
 
