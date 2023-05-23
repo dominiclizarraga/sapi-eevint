@@ -78,3 +78,6 @@ gem "tailwindcss-rails", "~> 2.0"
 
 # devise gem [https://github.com/heartcombo/devise]
 
+
+# annotate for describing model schema
+gem 'annotate'
