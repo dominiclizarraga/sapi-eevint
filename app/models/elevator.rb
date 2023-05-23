@@ -28,6 +28,11 @@
 #  fk_rails_...  (work_status_id => work_statuses.id)
 #
 class Elevator < ApplicationRecord
+  validates :customer_name, :description, 
+            :subdivision, :type, :selling_price,  
+            :actual_start, :actual_end, :eng_required_estimate, 
+            :eng_required_programming, presence: true
+
   belongs_to :contract
   belongs_to :work_status
 end

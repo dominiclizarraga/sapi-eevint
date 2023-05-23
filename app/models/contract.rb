@@ -10,5 +10,8 @@
 #  updated_at    :datetime         not null
 #
 class Contract < ApplicationRecord
+    validates :contract_type, :job_name, :job_number, presence: true
+    validates :job_number, uniqueness: true
+
     has_many :elevators
 end
