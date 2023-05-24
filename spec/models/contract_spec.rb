@@ -2,12 +2,11 @@
 #
 # Table name: contracts
 #
-#  id            :bigint           not null, primary key
-#  contract_type :string           not null
-#  job_name      :string           not null
-#  job_number    :integer          not null
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
+#  id         :bigint           not null, primary key
+#  job_name   :string           not null
+#  job_number :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 require 'rails_helper'
 
