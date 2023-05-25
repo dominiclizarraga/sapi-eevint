@@ -13,6 +13,7 @@ class ContractsController < ApplicationController
   # GET /contracts/new
   def new
     @contract = Contract.new
+    @contract.elevators.build
   end
 
   # GET /contracts/1/edit

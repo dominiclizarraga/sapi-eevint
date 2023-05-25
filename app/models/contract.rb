@@ -13,4 +13,6 @@ class Contract < ApplicationRecord
     validates :job_number, uniqueness: true
 
     has_many :elevators
+
+    accepts_nested_attributes_for :elevators
 end
