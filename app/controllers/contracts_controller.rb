@@ -66,6 +66,6 @@ class ContractsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:job_name, :job_number)
+      params.require(:contract).permit(:job_name, :job_number, elevators_attributes: [:id, :customer_name, :description, :elevator_type, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :work_status_id])
     end
 end
