@@ -35,4 +35,6 @@ class Elevator < ApplicationRecord
 
   belongs_to :contract
   belongs_to :work_status
+
+  accepts_nested_attributes_for :work_status
 end

@@ -39,7 +39,7 @@
 
     <div class="my-5">
       <%= elevator_form.label :selling_price %>
-      <%= elevator_form.text_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.number_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
@@ -49,29 +49,29 @@
 
     <div class="my-5">
       <%= elevator_form.label :eng_required_estimate %>
-      <%= elevator_form.text_field :eng_required_estimate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.date_field :eng_required_estimate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
       <%= elevator_form.label :eng_required_programming %>
-      <%= elevator_form.text_field :eng_required_programming, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.date_field :eng_required_programming, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
       <%= elevator_form.label :actual_end %>
-      <%= elevator_form.text_field :actual_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.date_field :actual_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
       <%= elevator_form.label :actual_start %>
-      <%= elevator_form.text_field :actual_start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.date_field :actual_start, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
       <%= elevator_form.label :work_status %>
-      <%= elevator_form.text_field :work_status, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.select :work_status_id, WorkStatus::WORK_STATUS_TYPES, prompt: "Select one", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
-
+    
   <% end %>
 
   <div class="inline">

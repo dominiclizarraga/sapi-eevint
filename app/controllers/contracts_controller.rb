@@ -14,6 +14,10 @@ class ContractsController < ApplicationController
   def new
     @contract = Contract.new
     @contract.elevators.build
+    # @contract.elevators.work_status = WorkStatus.new
+    # @contract.work_statuses.build
+    # @contract.work_status = 1
+    # debugger
   end
 
   # GET /contracts/1/edit
@@ -66,6 +70,6 @@ class ContractsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contract_params
-      params.require(:contract).permit(:job_name, :job_number, elevators_attributes: [:id, :customer_name, :description, :elevator_type, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :work_status_id])
+      params.require(:contract).permit(:job_name, :job_number, elevators_attributes: [:id, :customer_name, :selling_price, :subdivision, :work_status_id, :description, :elevator_type, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :work_status_id])
     end
 end
