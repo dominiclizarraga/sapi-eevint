@@ -12,20 +12,18 @@
 #  eng_required_programming :date
 #  selling_price            :float
 #  subdivision              :string
+#  work_status              :string
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  contract_id              :bigint           not null
-#  work_status_id           :bigint           not null
 #
 # Indexes
 #
-#  index_elevators_on_contract_id     (contract_id)
-#  index_elevators_on_work_status_id  (work_status_id)
+#  index_elevators_on_contract_id  (contract_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (contract_id => contracts.id)
-#  fk_rails_...  (work_status_id => work_statuses.id)
 #
 FactoryBot.define do
   factory :elevator do

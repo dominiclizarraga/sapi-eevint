@@ -69,7 +69,7 @@
 
     <div class="my-5">
       <%= elevator_form.label :work_status %>
-      <%= elevator_form.select :work_status_id, WorkStatus::WORK_STATUS_TYPES, prompt: "Select one", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= elevator_form.collection_select :contract, WorkStatus.first, WorkStatus.all, :id, prompt: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
     
   <% end %>

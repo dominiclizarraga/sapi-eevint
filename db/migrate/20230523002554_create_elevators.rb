@@ -11,7 +11,7 @@ class CreateElevators < ActiveRecord::Migration[7.0]
       t.date :actual_start
       t.date :actual_end
       t.references :contract, null: false, foreign_key: true
-      t.references :work_status, null: false, foreign_key: true
+      t.string :work_status
 
       t.timestamps
     end

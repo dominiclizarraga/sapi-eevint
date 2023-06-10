@@ -32,19 +32,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_002554) do
     t.date "actual_start"
     t.date "actual_end"
     t.bigint "contract_id", null: false
-    t.bigint "work_status_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contract_id"], name: "index_elevators_on_contract_id"
-    t.index ["work_status_id"], name: "index_elevators_on_work_status_id"
-  end
-
-  create_table "work_statuses", force: :cascade do |t|
     t.string "work_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contract_id"], name: "index_elevators_on_contract_id"
   end
 
   add_foreign_key "elevators", "contracts"
-  add_foreign_key "elevators", "work_statuses"
 end

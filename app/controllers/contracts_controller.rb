@@ -15,8 +15,6 @@ class ContractsController < ApplicationController
     @contract = Contract.new
     @contract.elevators.build
     # @contract.elevators.work_status = WorkStatus.new
-    # @contract.work_statuses.build
-    # @contract.work_status = 1
     # debugger
   end
 
