@@ -23,11 +23,12 @@ class ElevatorsController < ApplicationController
 
   # POST /elevators or /elevators.json
   def create
-    @elevator = Elevator.new(elevator_params)
+    @contract = Contract.find(params[:contract_id])
+    @elevator = @contract.elevators.new(elevator_params)
 
     respond_to do |format|
       if @elevator.save
-        format.html { redirect_to elevator_url(@elevator), notice: "Elevator was successfully created." }
+        format.html { redirect_to contract_elevators_path(@elevator), notice: "Elevator was successfully created." }
         format.json { render :show, status: :created, location: @elevator }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +41,7 @@ class ElevatorsController < ApplicationController
   def update
     respond_to do |format|
       if @elevator.update(elevator_params)
-        format.html { redirect_to elevator_url(@elevator), notice: "Elevator was successfully updated." }
+        format.html { redirect_to contract_elevators_path(@elevator), notice: "Elevator was successfully updated." }
         format.json { render :show, status: :ok, location: @elevator }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,6 +68,6 @@ class ElevatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def elevator_params
-      params.require(:elevator).permit(:customer_name, :selling_price, :type, :description, :subdivision, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :contract_id, :work_status_id)
+      params.require(:elevator).permit(:customer_name, :selling_price, :elevator_type, :description, :subdivision, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :contract_id, :work_status)
     end
 end
