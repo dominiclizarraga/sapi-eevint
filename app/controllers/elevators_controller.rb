@@ -3,6 +3,7 @@ class ElevatorsController < ApplicationController
 
   # GET /elevators or /elevators.json
   def index
+    @contract = Contract.find(params[:contract_id])
     @elevators = Elevator.all
   end
 
