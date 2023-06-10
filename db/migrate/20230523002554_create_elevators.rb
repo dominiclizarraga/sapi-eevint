@@ -3,7 +3,7 @@ class CreateElevators < ActiveRecord::Migration[7.0]
     create_table :elevators do |t|
       t.string :customer_name
       t.float :selling_price
-      t.string :elevator_type
+      t.integer :elevator_type
       t.text :description
       t.string :subdivision
       t.date :eng_required_estimate
@@ -11,7 +11,7 @@ class CreateElevators < ActiveRecord::Migration[7.0]
       t.date :actual_start
       t.date :actual_end
       t.references :contract, null: false, foreign_key: true
-      t.string :work_status
+      t.integer :work_status
 
       t.timestamps
     end

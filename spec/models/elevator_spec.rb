@@ -7,12 +7,12 @@
 #  actual_start             :date
 #  customer_name            :string
 #  description              :text
-#  elevator_type            :string
+#  elevator_type            :integer
 #  eng_required_estimate    :date
 #  eng_required_programming :date
 #  selling_price            :float
 #  subdivision              :string
-#  work_status              :string
+#  work_status              :integer
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  contract_id              :bigint           not null

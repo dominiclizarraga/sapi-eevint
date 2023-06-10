@@ -7,12 +7,12 @@
 #  actual_start             :date
 #  customer_name            :string
 #  description              :text
-#  elevator_type            :string
+#  elevator_type            :integer
 #  eng_required_estimate    :date
 #  eng_required_programming :date
 #  selling_price            :float
 #  subdivision              :string
-#  work_status              :string
+#  work_status              :integer
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
 #  contract_id              :bigint           not null
@@ -29,12 +29,26 @@ class Elevator < ApplicationRecord
   validates :customer_name, :description, 
             :subdivision, :elevator_type, :selling_price,  
             :actual_start, :actual_end, :eng_required_estimate, 
-            :eng_required_programming, presence: true
+            :eng_required_programming, :work_status, presence: true
+
+  enum work_status: {
+    Preliminar: 0,
+    Markups: 1,
+    Final: 2,
+    Buyout: 3,
+    Others: 4,
+    Customer: 5,
+    Waiting: 6
+  }
+
+  enum elevator_type: {
+    T1: 0,
+    T2: 1,
+    T3: 2,
+    T4: 3,
+    T5: 4
+  }
 
   belongs_to :contract
-  belongs_to :work_status
-
-  accepts_nested_attributes_for :work_status
-
   # look up the work_status_id use de enum values
 end
