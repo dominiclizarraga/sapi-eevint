@@ -12,8 +12,9 @@ class ElevatorsController < ApplicationController
 
   # GET /elevators/new
   def new
-    @elevator = Elevator.new
-    @elevator.work_statuses.build
+    @contract = Contract.find(params[:contract_id])
+    @elevator = @contract.elevators.new
+    # @elevator.work_statuses.build
   end
 
   # GET /elevators/1/edit
