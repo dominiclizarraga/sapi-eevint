@@ -18,7 +18,7 @@
 
   <div class="my-5">
     <%= form.label :selling_price %>
-    <%= form.text_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.number_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -26,6 +26,11 @@
     <%= form.select :elevator_type,[['T1'], ['T2'], 
                                     ['T3'],['T4'],
                                     ['T5']], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :work_status %>
+    <%= form.select :work_status, [['Preliminar'], ['Markups'], 
+                                    ['Final'],['Buyout'],
+                                    ['Others'], ['Customer'],
+                                    ['Waiting']], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -56,14 +61,6 @@
   <div class="my-5">
     <%= form.label :actual_end %>
     <%= form.date_field :actual_end, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :work_status %>
-    <%= form.select :work_status, [['Preliminar'], ['Markups'], 
-                                    ['Final'],['Buyout'],
-                                    ['Others'], ['Customer'],
-                                    ['Waiting']], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
