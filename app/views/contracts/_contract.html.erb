@@ -1,7 +1,7 @@
 <div id="<%= dom_id contract %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Job name:</strong>
-    <%= contract.job_name %>
+    <%= link_to contract.job_name, contract %>
   </p>
 
   <p class="my-5">
@@ -10,7 +10,6 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this contract", contract, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this contract', edit_contract_path(contract), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
