@@ -71,6 +71,7 @@ group :development, :test do
   gem "capybara"
   gem "webdrivers"
   gem "faker"
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 # Tailwind CSS [https://github.com/rails/tailwindcss-rails]
