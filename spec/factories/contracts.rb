@@ -7,9 +7,12 @@
 #  actual_start             :date
 #  customer_name            :string
 #  eng_required_programming :date
+#  entry_date               :date
 #  job_name                 :string           not null
 #  job_number               :string           not null
 #  selling_price            :float
+#  weeks_engineering        :date
+#  weeks_estimate           :date
 #  work_status              :integer
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
