@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_23_002554) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_28_023100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,20 +19,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_23_002554) do
     t.string "job_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "actual_end"
+    t.date "actual_start"
+    t.string "customer_name"
+    t.date "eng_required_programming"
+    t.float "selling_price"
+    t.integer "work_status"
   end
 
   create_table "elevators", force: :cascade do |t|
-    t.string "customer_name"
-    t.float "selling_price"
     t.integer "elevator_type"
     t.text "description"
     t.string "subdivision"
-    t.date "eng_required_estimate"
-    t.date "eng_required_programming"
-    t.date "actual_start"
-    t.date "actual_end"
     t.bigint "contract_id", null: false
-    t.integer "work_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["contract_id"], name: "index_elevators_on_contract_id"
