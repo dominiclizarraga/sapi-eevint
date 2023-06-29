@@ -26,10 +26,10 @@ class ElevatorsController < ApplicationController
   def create
     @contract = Contract.find(params[:contract_id])
     @elevator = @contract.elevators.new(elevator_params)
-
+    
     respond_to do |format|
       if @elevator.save
-        format.html { redirect_to contract_elevators_path(@elevator), notice: "Elevator was successfully created." }
+        format.html { redirect_to contract_elevators_path(@contract), notice: "Elevator was successfully created." }
         format.json { render :show, status: :created, location: @elevator }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class ElevatorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def elevator_params
-      params.require(:elevator).permit(:customer_name, :selling_price, :elevator_type, :description, :subdivision, :eng_required_estimate, :eng_required_programming, :actual_start, :actual_end, :contract_id, :work_status)
+      params.require(:elevator).permit(:elevator_type, :description, :subdivision, :contract_id)
     end
 end

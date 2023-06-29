@@ -1,13 +1,4 @@
 <div id="<%= dom_id elevator %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Customer name:</strong>
-    <%= elevator.customer_name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Selling price:</strong>
-    <%= elevator.selling_price %>
-  </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Type:</strong>
@@ -25,33 +16,8 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Eng required estimate:</strong>
-    <%= elevator.eng_required_estimate %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Eng required programming:</strong>
-    <%= elevator.eng_required_programming %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Actual start:</strong>
-    <%= elevator.actual_start %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Actual end:</strong>
-    <%= elevator.actual_end %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Contract:</strong>
     <%= elevator.contract_id %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Work status:</strong>
-    <%= elevator.work_status %>
   </p>
 
   <% if action_name != "show" %>

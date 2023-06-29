@@ -19,11 +19,9 @@
 #  fk_rails_...  (contract_id => contracts.id)
 #
 class Elevator < ApplicationRecord
-  validates :customer_name, :description, 
-            :subdivision, :elevator_type, :selling_price,  
-            :actual_start, :actual_end, :eng_required_estimate, 
-            :eng_required_programming, :work_status, presence: true
-
+  validates :description, 
+            :subdivision, :elevator_type, presence: true
+ 
   enum work_status: {
     Preliminar: 0,
     Markups: 1,
