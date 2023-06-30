@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_025535) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_30_031740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,10 +19,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_025535) do
     t.string "job_number", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "actual_end"
-    t.date "actual_start"
+    t.date "actual_end_at"
+    t.date "actual_start_at"
     t.string "customer_name"
-    t.date "eng_required_programming"
+    t.date "eng_required_date_at"
     t.float "selling_price"
     t.integer "work_status"
     t.date "entry_date"
