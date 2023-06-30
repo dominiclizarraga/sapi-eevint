@@ -22,7 +22,11 @@
 #  index_contracts_on_job_number  (job_number) UNIQUE
 #
 class Contract < ApplicationRecord
-    validates :job_name, :job_number, presence: true
+    validates :job_name, :job_number, :actual_end_at, :actual_start_at, 
+              :customer_name, :eng_required_date_at, :entry_date, 
+              :selling_price, :weeks_engineering, :weeks_estimate,
+              :work_status,  presence: true
+
     validates :job_number, uniqueness: true
 
     has_many :elevators, dependent: :destroy
