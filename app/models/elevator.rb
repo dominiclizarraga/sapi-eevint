@@ -21,16 +21,6 @@
 class Elevator < ApplicationRecord
   validates :description, 
             :subdivision, :elevator_type, presence: true
- 
-  enum work_status: {
-    Preliminar: 0,
-    Markups: 1,
-    Final: 2,
-    Buyout: 3,
-    Others: 4,
-    Customer: 5,
-    Waiting: 6
-  }
 
   enum elevator_type: {
     T1: 0,
@@ -41,5 +31,4 @@ class Elevator < ApplicationRecord
   }
 
   belongs_to :contract
-  # look up the work_status_id use de enum values
 end

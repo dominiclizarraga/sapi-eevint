@@ -21,7 +21,17 @@ class Contract < ApplicationRecord
     validates :job_name, :job_number, presence: true
     validates :job_number, uniqueness: true
 
-    has_many :elevators
+    has_many :elevators, dependent: :destroy
+
+    enum work_status: {
+        preliminar: 0,
+        markups: 1,
+        final: 2,
+        buyout: 3,
+        others: 4,
+        customer: 5,
+        waiting: 6
+      }
 
     accepts_nested_attributes_for :elevators
 end
