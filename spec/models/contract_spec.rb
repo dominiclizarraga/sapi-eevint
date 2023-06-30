@@ -17,6 +17,10 @@
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
 #
+# Indexes
+#
+#  index_contracts_on_job_number  (job_number) UNIQUE
+#
 require 'rails_helper'
 
 RSpec.describe Contract, type: :model do
