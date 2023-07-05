@@ -26,7 +26,7 @@ require 'rails_helper'
 RSpec.describe Contract, type: :model do
 
   def build_contract(attributes = {})
-    Contract.new(
+    Contract.create(
       job_name: 'Sample Job',
       job_number: '12345',
       created_at: Time.now,
@@ -38,10 +38,17 @@ RSpec.describe Contract, type: :model do
       selling_price: 1000,
       work_status: 1,
       entry_date: Date.today,
-      weeks_estimate: 4,
-      weeks_engineering: 2,
+      weeks_estimate: Time.now + 4,
+      weeks_engineering: Time.now + 2,
       **attributes
     )
+  end
+
+  describe 'creaton' do
+    it 'should have 1 contract created after creation' do
+      build_contract
+      expect(Contract.count).to eq(1)
+    end
   end
 
   describe 'validations' do
