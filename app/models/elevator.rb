@@ -20,6 +20,7 @@
 #
 class Elevator < ApplicationRecord
   validates :description, :subdivision, :elevator_type, presence: true
+  validates :contract_id, presence: true
 
   enum elevator_type: {
     T1: 0,
