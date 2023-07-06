@@ -29,8 +29,6 @@ RSpec.describe Contract, type: :model do
     Contract.create(
       job_name: 'Sample Job',
       job_number: '12345',
-      created_at: Time.now,
-      updated_at: Time.now,
       actual_end_at: Time.now,
       actual_start_at: Time.now,
       customer_name: 'John Doe',
@@ -44,9 +42,11 @@ RSpec.describe Contract, type: :model do
     )
   end
 
-  describe 'creaton' do
+  describe 'creation' do
     it 'should have 1 contract created after creation' do
       build_contract
+      # contract = FactoryBot.create(:contract)
+
       expect(Contract.count).to eq(1)
     end
   end
@@ -54,10 +54,12 @@ RSpec.describe Contract, type: :model do
   describe 'validations' do
     it 'with all valid attributes' do
       contract = build_contract
+      # contract = FactoryBot.create(:contract)
+
       expect(contract.valid?).to be_truthy
     end
 
-    it 'contract with invalid job_number' do
+    it 'with invalid job_number' do
       contract = Contract.new(job_number: nil)
       expect(contract.valid?).to be_falsey
       expect(contract.errors[:job_number]).to include("can't be blank")

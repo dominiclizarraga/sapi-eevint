@@ -23,8 +23,7 @@
 #
 FactoryBot.define do
   factory :contract do
-    job_name { "MyString" }
-    job_number { 1 }
-    contract_type { "MyString" }
+    job_name { "Sample Job" }
+    job_number { '12345' }
   end
 end
