@@ -25,37 +25,16 @@ require 'rails_helper'
 
 RSpec.describe Contract, type: :model do
 
-  def build_contract(attributes = {})
-    Contract.create(
-      job_name: 'Sample Job',
-      job_number: '12345',
-      actual_end_at: Time.now,
-      actual_start_at: Time.now,
-      customer_name: 'John Doe',
-      eng_required_date_at: Time.now,
-      selling_price: 1000,
-      work_status: 1,
-      entry_date: Date.today,
-      weeks_estimate: Time.now + 4,
-      weeks_engineering: Time.now + 2,
-      **attributes
-    )
-  end
-
   describe 'creation' do
     it 'should have 1 contract created after creation' do
-      build_contract
-      # contract = FactoryBot.create(:contract)
-
+      contract = FactoryBot.create(:contract)
       expect(Contract.count).to eq(1)
     end
   end
 
   describe 'validations' do
     it 'with all valid attributes' do
-      contract = build_contract
-      # contract = FactoryBot.create(:contract)
-
+      contract = FactoryBot.create(:contract)
       expect(contract.valid?).to be_truthy
     end
 

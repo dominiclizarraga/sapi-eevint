@@ -15,4 +15,22 @@ RSpec.describe "Contracts", type: :request do
       expect(response).to have_http_status "200"
     end
   end
+
+  describe "contracts/create" do
+    context "valid parameters" do
+      it "should create a new contract" do
+        contract_params = FactoryBot.attributes_for(:contract)
+        post contracts_path, params: { contract: contract_params }
+        # debugger
+        expect(response).to have_http_status "200"
+      end
+    end
+
+    context "invalid parameters" do
+      it "does not create a new contract" do
+      end
+    end
+  end
+
+
 end

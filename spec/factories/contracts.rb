@@ -30,7 +30,7 @@ FactoryBot.define do
     customer_name { 'John Doe'}
     eng_required_date_at { Time.now }
     selling_price { 1000 }
-    work_status { 1 }
+    work_status { 'preliminar' }
     entry_date { Date.today }
     weeks_estimate { Time.now + 4 }
     weeks_engineering { Time.now + 2 }
