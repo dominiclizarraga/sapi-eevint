@@ -46,6 +46,7 @@ RSpec.describe Elevator, type: :model do
         elevator_type: "T1",
         subdivision: 'Sample Subdivision'
       )
+      # elevator = FactoryBot.create(:elevator)
       expect(elevator.valid?).to be_truthy
     end
 
@@ -56,7 +57,6 @@ RSpec.describe Elevator, type: :model do
         subdivision: 'Sample Subdivision',
         contract_id: nil
       )
-      # debugger
       expect(elevator.valid?).to be_falsey
       expect(elevator.errors[:contract]).to include("must exist")
     end
