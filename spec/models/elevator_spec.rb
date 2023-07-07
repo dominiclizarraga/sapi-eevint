@@ -24,29 +24,8 @@ RSpec.describe Elevator, type: :model do
 
   describe 'validations' do
     it 'is valid with all required attributes' do
-      contract = Contract.create(
-        job_name: "Sample Job",
-        job_number: '123',
-        created_at: Time.now,
-        updated_at: Time.now,
-        actual_end_at: Time.now,
-        actual_start_at: Time.now,
-        customer_name: 'Sample Customer',
-        eng_required_date_at: Time.now,
-        selling_price: 1000,
-        work_status: 0,
-        entry_date: Date.today,
-        weeks_estimate: Time.now + 4,
-        weeks_engineering: Time.now + 2
-      )
-
-      elevator = Elevator.new(
-        contract_id: contract.id,
-        description: 'Sample Description',
-        elevator_type: "T1",
-        subdivision: 'Sample Subdivision'
-      )
-      # elevator = FactoryBot.create(:elevator)
+      contract = FactoryBot.build(:contract)
+      elevator = FactoryBot.create(:elevator)
       expect(elevator.valid?).to be_truthy
     end
 

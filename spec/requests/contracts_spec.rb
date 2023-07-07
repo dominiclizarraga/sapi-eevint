@@ -20,9 +20,9 @@ RSpec.describe "Contracts", type: :request do
     context "valid parameters" do
       it "should create a new contract" do
         contract_params = FactoryBot.attributes_for(:contract)
+        # attributes_for generates a hash of attributes based on the factory definition for the Contract model.
         post contracts_path, params: { contract: contract_params }
-        # debugger
-        expect(response).to have_http_status "200"
+        expect(response).to have_http_status :redirect
       end
     end
 
