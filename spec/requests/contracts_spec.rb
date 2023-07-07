@@ -18,19 +18,20 @@ RSpec.describe "Contracts", type: :request do
 
   describe "contracts/create" do
     context "valid parameters" do
+
       it "should create a new contract" do
         contract_params = FactoryBot.attributes_for(:contract)
         # attributes_for generates a hash of attributes based on the factory definition for the Contract model.
-        post contracts_path, params: { contract: contract_params }
+        post "/contracts", params: { contract: contract_params }
+        # debugger
+        expect(response.body).to include("Validation error message")
         expect(response).to have_http_status :redirect
       end
-    end
 
-    context "invalid parameters" do
-      it "does not create a new contract" do
+      context "invalid parameters" do
+        it "does not create a new contract" do
+        end
       end
     end
   end
-
-
 end

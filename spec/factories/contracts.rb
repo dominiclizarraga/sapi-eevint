@@ -23,14 +23,14 @@
 #
 FactoryBot.define do
   factory :contract do
-    job_name { "Sample Job" }
+    job_name { "Sample Job 2" }
     job_number { '12345' }
     actual_end_at { Time.now }
     actual_start_at { Time.now }
     customer_name { 'John Doe'}
     eng_required_date_at { Time.now }
     selling_price { 1000 }
-    work_status { 'preliminar' }
+    work_status { 'buyout' }
     entry_date { Date.today }
     weeks_estimate { Time.now + 4 }
     weeks_engineering { Time.now + 2 }
