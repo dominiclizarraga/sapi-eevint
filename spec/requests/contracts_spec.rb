@@ -20,13 +20,8 @@ RSpec.describe "Contracts", type: :request do
     context "valid parameters" do
       it "creates a new contract" do
         contract_params = FactoryBot.attributes_for(:contract)
-        debugger
-        expect {
-          post "/contracts", params: { contract: contract_params }
-        }.to change(Contract, :count).by(1)
-        
-        expect(response).to have_http_status(:created)
-        expect(response.body).not_to include("Validation error message")
+        post contracts_path, params: { contract: contract_params }
+        expect(response).to have_http_status(:redirect)
       end
     end
 

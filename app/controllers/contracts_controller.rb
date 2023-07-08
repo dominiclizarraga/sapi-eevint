@@ -28,7 +28,7 @@ class ContractsController < ApplicationController
 
     respond_to do |format|
       if @contract.save
-        format.html { redirect_to root_path, notice: "Contract was successfully created." }
+        format.html { redirect_to @contract, notice: "Contract was successfully created." }
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new, status: :unprocessable_entity }
