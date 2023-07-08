@@ -16,21 +16,30 @@ RSpec.describe "Contracts", type: :request do
     end
   end
 
-  describe "contracts/create" do
+  describe "POST /contracts" do
     context "valid parameters" do
-
-      it "should create a new contract" do
+      it "creates a new contract" do
         contract_params = FactoryBot.attributes_for(:contract)
-        # attributes_for generates a hash of attributes based on the factory definition for the Contract model.
-        post "/contracts", params: { contract: contract_params }
-        # debugger
-        expect(response.body).to include("Validation error message")
-        expect(response).to have_http_status :redirect
+        debugger
+        expect {
+          post "/contracts", params: { contract: contract_params }
+        }.to change(Contract, :count).by(1)
+        
+        expect(response).to have_http_status(:created)
+        expect(response.body).not_to include("Validation error message")
       end
+    end
 
-      context "invalid parameters" do
-        it "does not create a new contract" do
-        end
+    context "invalid parameters" do
+      it "does not create a new contract" do
+        # invalid_params = FactoryBot.attributes_for(:contract, :invalid)
+        
+        # expect {
+        #   post "/contracts", params: { contract: invalid_params }
+        # }.not_to change(Contract, :count)
+        
+        # expect(response).to have_http_status(:unprocessable_entity)
+        # expect(response.body).to include("Validation error message")
       end
     end
   end
