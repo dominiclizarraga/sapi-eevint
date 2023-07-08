@@ -27,14 +27,9 @@ RSpec.describe "Contracts", type: :request do
 
     context "invalid parameters" do
       it "does not create a new contract" do
-        # invalid_params = FactoryBot.attributes_for(:contract, :invalid)
-        
-        # expect {
-        #   post "/contracts", params: { contract: invalid_params }
-        # }.not_to change(Contract, :count)
-        
-        # expect(response).to have_http_status(:unprocessable_entity)
-        # expect(response.body).to include("Validation error message")
+        invalid_params = FactoryBot.attributes_for(:contract, job_name: nil)
+        post contracts_path, params: { contract: invalid_params }
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
