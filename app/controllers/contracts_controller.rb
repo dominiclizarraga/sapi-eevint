@@ -3,7 +3,7 @@ class ContractsController < ApplicationController
 
   # GET /contracts or /contracts.json
   def index
-    @contracts = Contract.all
+    @contracts = Contract.where(work_status: params[:work_status])
   end
 
   # GET /contracts/1 or /contracts/1.json
@@ -58,6 +58,13 @@ class ContractsController < ApplicationController
       format.html { redirect_to contracts_url, notice: "Contract was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def work_statuses
+    @work_statuses = Contract.work_statuses
+    @work_statuses_count = Contract.group(:work_status)
+                                    .pluck("work_status, count(id) as contracts_count")
+                                    .to_h
   end
 
   private
