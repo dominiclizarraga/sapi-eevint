@@ -2,6 +2,8 @@
   <p class="my-5">
     <strong class="block font-medium mb-1">Job name:</strong>
     <%= link_to contract.job_name, contract %>
+    <%= Contract.work_statuses %> 
+    <%# # move this logic to helper or to model and have access to it from the view %>
   </p>
 
   <p class="my-5">

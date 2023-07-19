@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'contracts#work_statuses'
+  root 'contracts#index'
   resources :contracts do
     resources :elevators
   end

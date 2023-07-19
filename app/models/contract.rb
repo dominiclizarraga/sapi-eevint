@@ -42,4 +42,5 @@ class Contract < ApplicationRecord
       }
 
     accepts_nested_attributes_for :elevators
+    
 end
