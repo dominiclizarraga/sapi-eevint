@@ -43,4 +43,6 @@ class Contract < ApplicationRecord
 
     accepts_nested_attributes_for :elevators
     
+    #scope :buyout, -> { where(work_status: "buyout") }
+
 end

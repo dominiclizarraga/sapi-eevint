@@ -12,7 +12,11 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
-      <%= yield %>
+    <div class="flex flex-col">
+      <%= render "layouts/navbar" %>
+        <div class="flex flex-row h-[calc(100vh-5rem)]">
+          <%= yield %>
+        </div>
+    </div>
   </body>
 </html>

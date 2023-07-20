@@ -62,8 +62,7 @@ class ContractsController < ApplicationController
 
   def work_statuses 
     # where do i get the Contract data?
-    # scope is another option
-    
+    # scope is another option or helper method
     @work_statuses = Contract.work_statuses
     @work_statuses_count = Contract.group(:work_status)
                                     .pluck("work_status, count(id) as contracts_count")

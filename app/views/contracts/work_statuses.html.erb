@@ -1,6 +1,12 @@
-<% @work_statuses.each_key do |key| %>
+<%= render partial: "sidebar" %>
+
+<main class="bg-blue-500 w-full overflow-y-auto">
   <div>
-    <%= @work_statuses_count[key] || 0 %>
-    <%= key %>
+    <% @work_statuses.each_key do |key| %>
+      <div>
+        <%= @work_statuses_count[key] || 0 %>
+        <%= key %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</main>
