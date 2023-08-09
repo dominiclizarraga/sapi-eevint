@@ -56,8 +56,12 @@ ELEVATOR_TYPES = {
   T5: 4
 }.freeze
 
+# count
+num = 1
+
 # Create Contracts and Elevators
 10.times do
+  puts "Creating Contract..."
   contract = Contract.create(
     job_name: Faker::Company.name,
     job_number: Faker::Number.unique.number(digits: 5),
@@ -71,14 +75,21 @@ ELEVATOR_TYPES = {
     weeks_estimate: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     weeks_engineering: Faker::Date.between(from: Date.today, to: 1.year.from_now)
   )
+  puts "Creating Contract... with id #{contract.id}"
+  elevators = []
 
   rand(0..5).times do
-    contract.elevators.create(
+    elevator = contract.elevators.create(
       elevator_type: ELEVATOR_TYPES.values.sample,
       description: Faker::Lorem.sentence,
       subdivision: Faker::Address.community
     )
+    # puts "Creating Elevator... with id #{contract.elevator.id}"
+    elevators << elevator.id
+
   end
+  puts "#{num}. Contract ID: #{contract.id}, Elevator IDs: #{elevators.join(', ')}"
+  num += 1
 end
 
 
