@@ -28,6 +28,7 @@ RSpec.describe Contract, type: :model do
   describe 'creation' do
     it 'should have 1 contract created after creation' do
       contract = FactoryBot.create(:contract)
+
       expect(Contract.count).to eq(1)
     end
   end
@@ -45,4 +46,22 @@ RSpec.describe Contract, type: :model do
     end
   end
 
+  describe "edit contract" do
+    it "succeeds" do
+      contract = FactoryBot.create(:contract)
+
+      get edit_contract_elevator_path(contract)
+      expect(response).to have_http_status "200"
+    end
+  end
+
+  describe "update contract" do
+    context "with valid and invalid params" do
+      it "succeeds" do
+      end
+
+      it "fails" do
+      end
+    end
+  end
 end
