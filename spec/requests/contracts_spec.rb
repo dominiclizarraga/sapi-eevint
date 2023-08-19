@@ -33,4 +33,12 @@ RSpec.describe "Contracts", type: :request do
       end
     end
   end
+
+  describe "GET /contracts/:id/edit" do
+    it "should return a 200 response" do
+      contract = FactoryBot.create(:contract)
+      get edit_contract_path(contract)
+      expect(response).to have_http_status "200"
+    end
+  end
 end

@@ -45,23 +45,4 @@ RSpec.describe Contract, type: :model do
       expect(contract.errors[:job_number]).to include("can't be blank")
     end
   end
-
-  describe "edit contract" do
-    it "succeeds" do
-      contract = FactoryBot.create(:contract)
-
-      get edit_contract_elevator_path(contract)
-      expect(response).to have_http_status "200"
-    end
-  end
-
-  describe "update contract" do
-    context "with valid and invalid params" do
-      it "succeeds" do
-      end
-
-      it "fails" do
-      end
-    end
-  end
 end
