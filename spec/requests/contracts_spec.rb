@@ -41,4 +41,32 @@ RSpec.describe "Contracts", type: :request do
       expect(response).to have_http_status "200"
     end
   end
+
+  describe "PATCH /contracts/:id" do
+    context "valid parameters" do
+      it "updates the contract and redirects to show page" do
+        contract = FactoryBot.create(:contract)
+        updated_params = FactoryBot.attributes_for(:contract, job_name: "Updated Job Name")
+        
+        patch contract_path(contract), params: { contract: updated_params }
+        expect(response).to redirect_to(contract_path(contract))
+        
+        contract.reload
+        expect(contract.job_name).to eq("Updated Job Name")
+      end
+    end
+
+    context "invalid parameters" do
+      it "does not update the contract and returns unprocessable entity" do
+        contract = FactoryBot.create(:contract)
+        invalid_params = FactoryBot.attributes_for(:contract, job_name: nil)
+        
+        patch contract_path(contract), params: { contract: invalid_params }
+        expect(response).to have_http_status(:unprocessable_entity)
+        
+        contract.reload
+        expect(contract.job_name).not_to be_nil
+      end
+    end
+  end
 end
