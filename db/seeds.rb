@@ -7,10 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # db/seeds.rb
 
-# Delete all existing records from the tables
-Elevator.delete_all
-Contract.delete_all
-
 # Create Contracts
 # contract1 = Contract.create(
 #   job_name: "Project A",
@@ -60,7 +56,7 @@ ELEVATOR_TYPES = {
 num = 1
 
 # Create Contracts and Elevators
-10.times do
+20.times do
   puts "Creating Contract..."
   contract = Contract.create(
     job_name: Faker::Company.name,
@@ -78,7 +74,7 @@ num = 1
   puts "Creating Contract... with id #{contract.id}"
   elevators = []
 
-  rand(0..5).times do
+  rand(0..7).times do
     elevator = contract.elevators.create(
       elevator_type: ELEVATOR_TYPES.values.sample,
       description: Faker::Lorem.sentence,
