@@ -73,12 +73,12 @@ RSpec.describe "Contracts", type: :request do
   describe "DESTROY /contracts/:id/" do
     it "should delete a contract" do
       contract = FactoryBot.create(:contract)
-      contract.destroy
-      # debugger
-      expect(response).to have_http_status "200"
-      # expect(response).to have_http_status(:redirect)
-      # expect(response).to redirect_to(root_path)
+      
+      expect {
+        delete contract_path(contract)
+      }.to change(Contract, :count).by(-1)
 
+      expect(response).to redirect_to(contracts_path)
     end
   end
 end
