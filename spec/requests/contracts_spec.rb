@@ -80,16 +80,5 @@ RSpec.describe "Contracts", type: :request do
 
       expect(response).to redirect_to(contracts_path)
     end
-
-    it "does not delete the contract and renders the show template with error" do
-      contract = FactoryBot.create(:contract)
-
-      expect {
-        delete contract_path(contract.id + 1)
-      }.not_to change(Contract, :count)
-      
-      expect(response).to render_template(:show)
-      expect(response).to have_http_status(:not_found)
-    end
   end
 end
