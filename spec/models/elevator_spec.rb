@@ -25,7 +25,7 @@ RSpec.describe Elevator, type: :model do
   describe 'validations' do
     it 'is valid with all required attributes' do
       contract = FactoryBot.build(:contract)
-      elevator = FactoryBot.create(:elevator)
+      elevator = create(:elevator)
       expect(elevator.valid?).to be_truthy
     end
 

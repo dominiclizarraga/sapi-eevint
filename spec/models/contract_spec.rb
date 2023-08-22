@@ -35,7 +35,7 @@ RSpec.describe Contract, type: :model do
 
   describe 'validations' do
     it 'with all valid attributes' do
-      contract = FactoryBot.create(:contract)
+      contract = create(:contract)
       expect(contract.valid?).to be_truthy
     end
 
