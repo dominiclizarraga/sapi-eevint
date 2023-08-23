@@ -1,11 +1,18 @@
 
   <header class="flex items-center bg-green-500 h-24">
     <div class="ml-4">
-      Logo
+      <%= link_to root_path do %>
+        <%= image_tag "logo.png", style: "width: 120px;" %>
+      <% end %>
     </div>
     <div class="ml-10">
-      <%#= link_to "Home", root_path %>
-      <%= link_to "Status", work_statuses_path %>
+      <%= link_to root_path do %>
+        <%= svg_tag "house" %>
+      <% end %>
+      <%= link_to work_statuses_path do %>
+        <%= svg_tag "calendar" %>
+      <% end %>
+
       <%#= link_to "Planning", root_path %>
       <%#= link_to "Charts", root_path %>
       <%#= link_to "Quality", root_path %>
