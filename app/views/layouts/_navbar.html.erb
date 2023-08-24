@@ -1,22 +1,29 @@
 
-  <header class="flex items-center bg-green-500 h-24">
+  <header class="flex items-center bg-gray-sapi h-24">
     <div class="ml-4">
       <%= link_to root_path do %>
         <%= image_tag "logo.png", style: "width: 120px;" %>
       <% end %>
     </div>
-    <div class="ml-10">
+    <div class="flex ml-2 justify-between">
       <%= link_to root_path do %>
-        <%= svg_tag "house" %>
+        <%= svg_tag "house", style: "color: #1a5294; background-color: #dddddd; font-size: 40px;" %>
       <% end %>
       <%= link_to work_statuses_path do %>
-        <%= svg_tag "calendar" %>
+        <%= svg_tag "chart-line-solid", style: "color: blue; background-color: red; font-size: 40px;" %>
       <% end %>
-
-      <%#= link_to "Planning", root_path %>
-      <%#= link_to "Charts", root_path %>
-      <%#= link_to "Quality", root_path %>
-      <%#= link_to "W Force", root_path %>
+      <%= link_to planning_path do %>
+        <%= svg_tag "calendar", style: "color: blue; background-color: red; font-size: 40px;" %>
+      <% end %>
+      <%= link_to work_statuses_path do %>
+        <%= svg_tag "chart-simple-solid", style: "color: blue; background-color: red; font-size: 40px;" %>
+      <% end %>
+      <%= link_to work_statuses_path do %>
+        <%= svg_tag "check-to-slot-solid", style: "color: blue; background-color: red; font-size: 40px;" %>
+      <% end %>
+      <%= link_to work_statuses_path do %>
+        <%= svg_tag "people-arrows-solid", style: "color: blue; background-color: red; font-size: 40px;" %>
+      <% end %>
     </div>
   </header>
 
