@@ -15,7 +15,43 @@
     <%= link_to contracts_path(work_status: "preliminar") do %>
       <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
-    <%= link_to "PRELIMINAR", contracts_path(work_status: "preliminar"), class: "text-xs" %>
+    <%= link_to "PRELIMINAR", contracts_path(work_status: "preliminar"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "preliminar") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "MARKUPS", contracts_path(work_status: "markups"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "final") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "FINAL", contracts_path(work_status: "final"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "buyout") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "BUYOUT", contracts_path(work_status: "buyout"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "others") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "OTHERS", contracts_path(work_status: "others"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "waiting") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "WAITING", contracts_path(work_status: "waiting"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
+  </div>
+  <div class="flex items-center mt-4">
+    <%= link_to contracts_path(work_status: "customer") do %>
+      <%= svg_tag "house", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
+    <% end %>
+    <%= link_to "CUSTOMER", contracts_path(work_status: "customer"), class: "text-xs -ml-2", style: "color: #1a5294;" %>
   </div>
 </aside>
   
