@@ -9,15 +9,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors : {
+        sapiBlue: '#1a5294',
+        sapiGray: '#dddddd',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-    },
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'navy-sapi': '#1a5294',
-      'gray-sapi': '#dddddd',
     },
   },
   plugins: [
