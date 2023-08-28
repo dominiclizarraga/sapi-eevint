@@ -63,10 +63,11 @@ class ContractsController < ApplicationController
   def work_statuses 
     # where do i get the Contract data?
     # scope is another option or helper method
-    @work_statuses = Contract.work_statuses
-    @work_statuses_count = Contract.group(:work_status)
-                                    .pluck("work_status, count(id) as contracts_count")
-                                    .to_h
+    contract_statuses_stats
+  end
+
+  def planning
+    contract_statuses_stats
   end
 
   private
@@ -78,5 +79,12 @@ class ContractsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def contract_params
       params.require(:contract).permit(:job_name, :job_number, :customer_name, :selling_price, :eng_required_date_at, :actual_start_at, :actual_end_at, :work_status, :entry_date, :weeks_estimate, :weeks_engineering, elevators_attributes: [:id, :subdivision, :description, :elevator_type])
+    end
+
+    def contract_statuses_stats
+      @work_statuses = Contract.work_statuses
+      @work_statuses_count = Contract.group(:work_status)
+                                      .pluck("work_status, count(id) as contracts_count")
+                                      .to_h
     end
 end

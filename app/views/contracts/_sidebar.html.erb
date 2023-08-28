@@ -1,5 +1,5 @@
 
-<aside class="bg-red-500 w-24 overflow-y-auto">
+<aside class="bg-red-500 w-40 overflow-y-auto">
      <% @work_statuses.each_key do |status| %>
         <%= link_to status.capitalize, contracts_path(work_status: status) %>
         <br>
