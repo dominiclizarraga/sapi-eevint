@@ -1,15 +1,19 @@
 <%= render partial: "sidebar" %>
 
 <main class="flex w-full">
-  <div class="w-1/2">
+  <div class="flex items-center justify-around flex-wrap w-1/2 mt-16">
     <% @work_statuses.each_key do |key| %>
-      <div>
-        <%= @work_statuses_count[key] || 0 %>
-        <%= key %>
+      <div class="flex flex-col items-center justify-center m-12">
+        <p class="flex w-28 h-28 rounded-full bg-blue-900 text-white items-center justify-center border-4 border-blue-950 text-5xl"> 
+          <%= @work_statuses_count[key] || 0 %> 
+        </p>
+        <p class="text-center uppercase mt-4 text-slate-700 text-2xl"> 
+          <%= key %> 
+        </p>
       </div>
     <% end %>
   </div>
   <div class="w-1/2 text-sapiBlue">
-  hola
+  doughnut chart
   </div>
 </main>
