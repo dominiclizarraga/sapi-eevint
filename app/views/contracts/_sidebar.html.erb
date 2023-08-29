@@ -11,43 +11,43 @@
 
   <%# this code works but it's not dynamic %>
 
-  <div class="flex items-center">
+  <div class="flex items-center h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "preliminar") do %>
       <%= svg_tag "copy-regular", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "PRELIMINAR", contracts_path(work_status: "preliminar"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "markups") do %>
       <%= svg_tag "pen-to-square-regular", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "MARKUPS", contracts_path(work_status: "markups"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "final") do %>
       <%= svg_tag "flag-checkered-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "FINAL", contracts_path(work_status: "final"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "buyout") do %>
       <%= svg_tag "building-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "BUYOUT", contracts_path(work_status: "buyout"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "others") do %>
       <%= svg_tag "chart-line-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "OTHERS", contracts_path(work_status: "others"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "waiting") do %>
       <%= svg_tag "pause-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
     <%= link_to "WAITING", contracts_path(work_status: "waiting"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294;" %>
   </div>
-  <div class="flex items-center mt-4">
+  <div class="flex items-center mt-2 h-12 hover:border-2 border-white">
     <%= link_to contracts_path(work_status: "customer") do %>
       <%= svg_tag "building-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
