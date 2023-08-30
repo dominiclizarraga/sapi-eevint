@@ -3,8 +3,11 @@
   <tbody>
       <tr class="bg-white border-b">
           <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            <%= contract.job_number %>
+            <%= contract.id %>
           </th>
+          <td class="px-6 py-4">
+            <%= link_to contract.customer_name, contract_path(contract) %>
+          </td>
           <td class="px-6 py-4">
               Silver
           </td>
