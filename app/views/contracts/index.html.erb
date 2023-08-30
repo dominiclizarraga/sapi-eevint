@@ -1,18 +1,54 @@
 <%= render partial: "sidebar" %>
 
-<div class="w-full">
+<div class="w-full p-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <%= link_to "Final", contracts_path(work_status: :preliminar) %>
-
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Contracts</h1>
-    <%= link_to 'New contract', new_contract_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">
+      <%= params[:work_status].capitalize %>
+    </h1>
   </div>
 
   <div id="contracts" class="min-w-full">
-    <%= render @contracts %>
+    <div class="overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left text-gray-500">
+        <thead class="text-xs uppercase bg-gray-400 text-black">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Number
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Company
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Status
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    By
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Estim.
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Eng.
+                </th>
+            </tr>
+        </thead>
+        <%= render @contracts %>
+      </table>
   </div>
 </div>
