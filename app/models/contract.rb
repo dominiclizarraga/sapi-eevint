@@ -45,4 +45,20 @@ class Contract < ApplicationRecord
     
     # scope :buyout, -> { where(work_status: "buyout") }
 
+    def all_elevator_types
+      if elevators.any?
+        elevators.map(&:elevator_type).join(', ')
+      else
+        'No elevator type'
+      end
+    end
+
+    def all_descriptions
+      if elevators.any?
+        elevators.map(&:description).join(', ')
+      else
+        'No description provided'
+      end
+    end
+
 end
