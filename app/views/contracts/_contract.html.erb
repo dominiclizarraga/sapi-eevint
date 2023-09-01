@@ -1,26 +1,56 @@
 <div id="<%= dom_id contract %>">
-
   <tbody>
-      <tr class="bg-white border-b">
-          <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            <%= contract.id %>
-          </th>
-          <td class="px-6 py-4">
-            <%= link_to contract.customer_name, contract_path(contract) %>
-          </td>
-          <td class="px-6 py-4">
-              Silver
-          </td>
-          <td class="px-6 py-4">
-              Laptop
-          </td>
-          <td class="px-6 py-4">
-              $2999
-          </td>
-          <td class="px-6 py-4">
-              <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-          </td>
-      </tr>
+    <tr class="bg-white border-b">
+      <th scope="row" class="px-2 text-sm">
+        <%= contract.id %>
+      </th>
+      <td class="px-2 text-sm">
+        <%= link_to contract.customer_name, contract_path(contract), class: "text-blue-500 underline underline-offset-4" %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.job_number %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.job_name %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= number_to_currency(contract.selling_price, precision: 0) %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.all_descriptions.truncate_words(4) %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.all_elevator_types %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.work_status.capitalize %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.created_at.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.weeks_estimate.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </td>
+      <td class="px-2 text-sm">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </td>
+    </tr>
   </tbody>
-
 </div>
