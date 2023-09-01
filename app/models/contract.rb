@@ -60,5 +60,4 @@ class Contract < ApplicationRecord
         'No description provided'
       end
     end
-
 end
