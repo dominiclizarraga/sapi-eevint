@@ -6,7 +6,8 @@ class ContractsController < ApplicationController
 
   # GET /contracts or /contracts.json
   def index
-    @contracts = Contract.where(work_status: params[:work_status])
+    attrs = params[:work_status].present? ? { work_status: params[:work_status] } : {}
+    @contracts = Contract.where(attrs) 
   end
 
   # GET /contracts/1 or /contracts/1.json
@@ -71,6 +72,13 @@ class ContractsController < ApplicationController
 
   def planning
     contract_statuses_stats
+    @preliminar_contracts = Contract.where(work_status: "preliminar")
+    @markups_contracts = Contract.where(work_status: "markups")
+    @final_contracts = Contract.where(work_status: "final")
+    @buyout_contracts = Contract.where(work_status: "buyout")
+    @others_contracts = Contract.where(work_status: "others")
+    @customer_contracts = Contract.where(work_status: "customer")
+    @waiting_contracts = Contract.where(work_status: "waiting")
   end
 
   private
