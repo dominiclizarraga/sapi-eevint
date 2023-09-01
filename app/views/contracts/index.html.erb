@@ -4,54 +4,5 @@
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">
-      <%= params[:work_status].capitalize %>
-    </h1>
-  </div>
-
-  <div id="contracts" class="min-w-full mt-4">
-    <div class="overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-sm text-left text-gray-500">
-        <thead class="text-xs uppercase bg-gray-400 text-black">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    No.
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Project name
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Number
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Company
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Price
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Description
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Type
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    By
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Estim.
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Eng.
-                </th>
-            </tr>
-        </thead>
-        <%= render @contracts %>
-      </table>
-  </div>
+  <%= render partial: "table_contracts", locals: { contracts: @contracts, title: params[:work_status] } %>
 </div>
