@@ -9,24 +9,24 @@
     <%= link_to contracts_path(work_status: "markups") do %>
       <%= svg_tag "pen-to-square-solid", style: "color: #1a5294; font-size: 30px; margin-right: 18px;" %>
     <% end %>
-    <%= link_to "Edit project", contracts_path(work_status: "markups"), class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294; margin-right: -5px;" %>
+    <%= link_to "Edit project", contracts_path, class: "text-xs -ml-2 hover:text-sm", style: "color: #1a5294; margin-right: -5px;" %>
   </div>
   <div class="flex justify-center items-center h-12 hover:border-2 border-white w-36 ml-4">
     <%= link_to contracts_path(work_status: "markups") do %>
       <%= svg_tag "arrows-turn-to-dots-solid", style: "color: #1a5294; font-size: 30px;" %>
     <% end %>
-    <%= link_to "Move project", contracts_path(work_status: "markups"), class: "text-xs hover:text-sm", style: "color: #1a5294; margin-left: 10px;" %>
+    <%= link_to "Move project", contracts_path, class: "text-xs hover:text-sm", style: "color: #1a5294; margin-left: 10px;" %>
   </div>
   <div class="flex justify-center items-center h-12 hover:border-2 border-white w-36 ml-2">
     <%= link_to contracts_path(work_status: "markups") do %>
       <%= svg_tag "box-archive-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px; margin-left: -7px;" %>
     <% end %>
-    <%= link_to "History", contracts_path(work_status: "markups"), class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
+    <%= link_to "History", contracts_path, class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
   </div>
   <div class="flex justify-center items-center h-12 hover:border-2 border-white w-36 ml-2">
     <%= link_to contracts_path(work_status: "markups") do %>
       <%= svg_tag "print-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
-    <%= link_to "Print report", contracts_path(work_status: "markups"), class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
+    <%= link_to "Print report", contracts_path, class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
   </div>
 </aside>
