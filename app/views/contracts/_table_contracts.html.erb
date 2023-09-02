@@ -1,6 +1,6 @@
 <div class="flex justify-between items-center">
-  <h1 class="font-bold text-4xl">
-      <%= title.capitalize if title.present? %>
+  <h1 class="font-bold text-4xl mt-4">
+      <%= link_to title.capitalize, contracts_path(work_status: title.downcase) if title.present? %>
   </h1>
 </div>
 
