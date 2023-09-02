@@ -5,10 +5,10 @@
     <% @work_statuses.each_key do |key| %>
       <div class="flex flex-col items-center justify-center m-12">
         <p class="flex w-28 h-28 rounded-full bg-blue-900 text-white items-center justify-center border-4 border-blue-950 text-5xl"> 
-          <%= @work_statuses_count[key] || 0 %> 
+          <%= link_to @work_statuses_count[key], contracts_path(work_status: key) || 0 %> 
         </p>
         <p class="text-center uppercase mt-4 text-slate-700 text-2xl"> 
-          <%= key %> 
+          <%= link_to key, contracts_path(work_status: key) %> 
         </p>
       </div>
     <% end %>
