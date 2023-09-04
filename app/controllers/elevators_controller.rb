@@ -1,9 +1,9 @@
 class ElevatorsController < ApplicationController
+  before_action :set_contract
   before_action :set_elevator, only: %i[ show edit update destroy ]
 
   # GET /elevators or /elevators.json
   def index
-    @contract = Contract.find(params[:contract_id])
     @elevators = Elevator.all
   end
 
@@ -13,7 +13,6 @@ class ElevatorsController < ApplicationController
 
   # GET /elevators/new
   def new
-    @contract = Contract.find(params[:contract_id])
     @elevator = @contract.elevators.new
     # @elevator.work_statuses.build
   end
@@ -24,9 +23,7 @@ class ElevatorsController < ApplicationController
 
   # POST /elevators or /elevators.json
   def create
-    @contract = Contract.find(params[:contract_id])
     @elevator = @contract.elevators.new(elevator_params)
-    
     respond_to do |format|
       if @elevator.save
         format.html { redirect_to contract_elevators_path(@contract), notice: "Elevator was successfully created." }
@@ -42,7 +39,7 @@ class ElevatorsController < ApplicationController
   def update
     respond_to do |format|
       if @elevator.update(elevator_params)
-        format.html { redirect_to contract_elevators_path(@elevator), notice: "Elevator was successfully updated." }
+        format.html { redirect_to contract_elevator_path(@contract, @elevator), notice: "Elevator was successfully updated." }
         format.json { render :show, status: :ok, location: @elevator }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +53,7 @@ class ElevatorsController < ApplicationController
     @elevator.destroy
 
     respond_to do |format|
-      format.html { redirect_to elevators_url, notice: "Elevator was successfully destroyed." }
+      format.html { redirect_to contract_elevators_path(@contract), notice: "Elevator was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -64,7 +61,11 @@ class ElevatorsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_elevator
-      @elevator = Elevator.find(params[:id])
+      @elevator = @contract.elevators.find(params[:id])
+    end
+
+    def set_contract
+      @contract = Contract.find(params[:contract_id])
     end
 
     # Only allow a list of trusted parameters through.
