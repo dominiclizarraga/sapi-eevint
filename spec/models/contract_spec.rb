@@ -45,4 +45,18 @@ RSpec.describe Contract, type: :model do
       expect(contract.errors[:job_number]).to include("can't be blank")
     end
   end
+
+  describe 'Associations' do
+    it { should have_many(:elevators) }
+  end
+
+  describe 'Nested Attributes' do
+    it 'allows for nested attributes for elevators' do
+      contract = FactoryBot.create(:contract)
+      elevator = FactoryBot.create(:elevator, contract: contract)
+      contract.reload
+
+      expect(contract.elevators).to include(elevator)
+    end
+  end
 end
