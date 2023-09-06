@@ -22,6 +22,8 @@ class Elevator < ApplicationRecord
   validates :description, :subdivision, :elevator_type, presence: true
   validates :contract_id, presence: true
 
+  belongs_to :contract
+
   enum elevator_type: {
     T1: 0,
     T2: 1,
@@ -29,6 +31,4 @@ class Elevator < ApplicationRecord
     T4: 3,
     T5: 4
   }
-
-  belongs_to :contract
 end
