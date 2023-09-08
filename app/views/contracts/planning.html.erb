@@ -14,17 +14,8 @@
     <% end %>
   </div>
 
-  <%= render partial: "table_contracts", locals: { contracts: @preliminar_contracts, title: 'Preliminar' } %>
+  <% @contracts_by_status.each do |status, contracts| %>
+    <%= render partial: "table_contracts", locals: { contracts: contracts, title: status.capitalize } %>
+  <% end %>
 
-  <%= render partial: "table_contracts", locals: { contracts: @markups_contracts, title: 'Markups' } %>
-
-  <%= render partial: "table_contracts", locals: { contracts: @final_contracts, title: 'Final' } %>
-
-  <%= render partial: "table_contracts", locals: { contracts: @buyout_contracts, title: 'Buyout' } %>
-
-  <%= render partial: "table_contracts", locals: { contracts: @others_contracts, title: 'Others' } %>
-
-  <%= render partial: "table_contracts", locals: { contracts: @customer_contracts, title: 'Customer' } %>
-
-  <%= render partial: "table_contracts", locals: { contracts: @waiting_contracts, title: 'Waiting' } %>
 </main>

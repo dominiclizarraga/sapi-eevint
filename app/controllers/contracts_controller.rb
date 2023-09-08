@@ -94,13 +94,13 @@ class ContractsController < ApplicationController
 
   def planning
     contract_statuses_stats
-    @preliminar_contracts = Contract.where(work_status: "preliminar")
-    @markups_contracts = Contract.where(work_status: "markups")
-    @final_contracts = Contract.where(work_status: "final")
-    @buyout_contracts = Contract.where(work_status: "buyout")
-    @others_contracts = Contract.where(work_status: "others")
-    @customer_contracts = Contract.where(work_status: "customer")
-    @waiting_contracts = Contract.where(work_status: "waiting")
+  
+    @statuses = %w[preliminar markups final buyout others customer waiting]
+    @contracts_by_status = {}
+  
+    @statuses.each do |status|
+      @contracts_by_status[status] = Contract.where(work_status: status)
+    end
   end
 
   private
