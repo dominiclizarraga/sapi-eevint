@@ -119,8 +119,6 @@ class ContractsController < ApplicationController
 
     def contract_statuses_stats
       @work_statuses = Contract.work_statuses
-      @work_statuses_count = Contract.group(:work_status)
-                                      .pluck("work_status, count(id) as contracts_count")
-                                      .to_h
+      @work_statuses_count = Contract.group(:work_status).count
     end
 end
