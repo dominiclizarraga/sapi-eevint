@@ -11,64 +11,71 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :job_name %>
-    <%= form.text_field :job_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+  <div class="flex justify-around">
+    <div class="mr-12">
+      <div class="my-5">
+        <%= form.label :job_name %>
+        <%= form.text_field :job_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :job_number %>
-    <%= form.text_field :job_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :job_number %>
+        <%= form.text_field :job_number, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :customer_name %>
-    <%= form.text_field :customer_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :customer_name %>
+        <%= form.text_field :customer_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :selling_price %>
-    <%= form.number_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :selling_price %>
+        <%= form.number_field :selling_price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <%# <%= form.date_field :test %>
+      <%# for later use the field below %>
+      <%# <%= form.date_field :test %>
 
-  <div class="my-5">
-    <%= form.label :work_status %>
-    <%= form.select :work_status, Contract.work_statuses.map { |ws| [ws[0]] }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :work_status %>
+        <%= form.select :work_status, Contract.work_statuses.map { |ws| [ws[0]] }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
+    </div>
 
-  <div class="my-5">
-    <%= form.label :eng_required_date_at %>
-    <%= form.date_field :eng_required_date_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+    <div class="ml-12">
+      <div class="my-5">
+        <%= form.label :eng_required_date_at %>
+        <%= form.date_field :eng_required_date_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :actual_start_at %>
-    <%= form.date_field :actual_start_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :actual_start_at %>
+        <%= form.date_field :actual_start_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :actual_end_at %>
-    <%= form.date_field :actual_end_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :actual_end_at %>
+        <%= form.date_field :actual_end_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :entry_date %>
-    <%= form.date_field :entry_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :entry_date %>
+        <%= form.date_field :entry_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :weeks_estimate %>
-    <%= form.date_field :weeks_estimate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :weeks_estimate %>
+        <%= form.date_field :weeks_estimate, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="my-5">
-    <%= form.label :weeks_engineering %>
-    <%= form.date_field :weeks_engineering, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
+      <div class="my-5">
+        <%= form.label :weeks_engineering %>
+        <%= form.date_field :weeks_engineering, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+      </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+      </div>
+    </div>
   </div>
 <% end %>
