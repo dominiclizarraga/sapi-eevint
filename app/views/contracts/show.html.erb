@@ -1,16 +1,15 @@
+<%= render partial: "sidebar-2" %>
+
+
 <div class="mx-auto md:w-2/3 w-full flex">
   <div class="mx-auto">
+    <h1 class="font-bold text-4xl mt-4"> <%= @contract.job_name %> </h1>
+
     <% if notice.present? %>
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @contract %>
+    <%= render partial: "contract_show", locals: { contract: @contract } %>
 
-    <%= link_to 'Edit this contract', edit_contract_path(@contract), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this contract', contract_path(@contract), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium",
-          data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
-    </div>
-    <%= link_to 'Back to contracts', contracts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

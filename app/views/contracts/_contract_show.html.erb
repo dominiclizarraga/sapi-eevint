@@ -1,0 +1,106 @@
+<div class="flex justify-around">
+  <div class="mr-12">
+    <div class="my-5">
+      <strong>Job Name:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.job_name %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Job Number:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.job_number %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Customer Name:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.customer_name %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Selling Price:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= number_to_currency(contract.selling_price, precision: 0) %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Work Status:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.work_status.capitalize %>
+      </p>
+    </div>
+
+    <div class="flex flex-col">
+      <%= link_to 'Add Elevator 🛗', new_contract_elevator_path(@contract), class: "w-44 rounded-lg py-3 px-5 bg-sapiBlue text-white inline-block font-medium" %>
+
+      <%= link_to 'Edit this contract', edit_contract_path(@contract), class: "w-44 mt-2 rounded-lg py-3 px-5 bg-gray-300 inline-block font-medium" %>
+      
+      <%= link_to 'Back ↩️', contracts_path, class: "mt-2 w-28 rounded-lg py-3 px-5 bg-gray-300 inline-block font-medium" %>
+    </div>
+
+  </div>
+
+  <div class="ml-12">
+    <div class="my-5">
+      <strong>Engineering Required Date:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Actual Start Date:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.actual_start_at.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Actual End Date:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.actual_end_at.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Entry Date:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.entry_date.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Weeks Estimate:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.weeks_estimate.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <div class="my-5">
+      <strong>Weeks Engineering:</strong>
+      <p class="block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80">
+        <%= contract.weeks_engineering.strftime("%d/%m/%Y") %>
+      </p>
+    </div>
+
+    <%= button_to 'Destroy this contract', contract_path(@contract), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-500 font-medium text-white",
+    data: { turbo_method: :delete, turbo_confirm: "Really?!" } %>
+
+  </div>
+  <!-- Elevators associated with the contract -->
+  <div class="my-5 ml-24">
+    <strong>Elevators: (<%= @contract.elevators.count %>) </strong>
+    <% contract.elevators.each_with_index do |elevator, index| %>
+      <div class="mt-2 p-2 border border-sapiBlue rounded-md">
+        <p><strong> <%= "#{index + 1}. " %> Description:</strong> <%= link_to elevator.description, contract_elevator_path(@contract, elevator), class: "text-blue-600 underline" %></p>
+        <p><strong>Type:</strong> <%= elevator.elevator_type %> </p>
+        <p><strong>Subdivision:</strong> <%= elevator.subdivision %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

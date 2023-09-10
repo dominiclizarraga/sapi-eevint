@@ -1,7 +1,7 @@
 <%= render partial: "sidebar-2" %>
 
-<div class="mx-auto">
-  <h1 class="font-bold text-4xl">Editing contract</h1>
+<div class="mx-auto mt-4">
+  <h1 class="font-bold text-4xl">Editing <%= @contract.job_name %></h1>
 
   <%= render "form", contract: @contract %>
 
