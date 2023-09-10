@@ -40,6 +40,11 @@
         <%= form.label :work_status %>
         <%= form.select :work_status, Contract.work_statuses.map { |ws| [ws[0]] }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
       </div>
+      <div class="inline">
+        <%= form.submit class: "rounded-lg py-3 px-5 bg-sapiBlue text-white inline-block font-medium cursor-pointer mt-6" %>
+      </div>
+
+      <%= link_to 'Back ↩️', contracts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     </div>
 
     <div class="ml-12">
@@ -71,10 +76,6 @@
       <div class="my-5">
         <%= form.label :weeks_engineering %>
         <%= form.date_field :weeks_engineering, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
-      </div>
-
-      <div class="inline">
-        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
       </div>
     </div>
   </div>
