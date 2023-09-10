@@ -1,9 +1,11 @@
 <%= render partial: "sidebar-2" %>
 
 <div class="mx-auto mt-4">
-  <h1 class="font-bold text-4xl">Editing <%= @contract.job_name %></h1>
+  <h1 class="font-bold text-4xl text-black">
+    <span class="text-blue-500">Editing</span> 
+    <span><%= @contract.job_name %></span>
+  </h1>
 
   <%= render "form", contract: @contract %>
-
-  <%#= link_to "Show this contract", @contract, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  
 </div>

@@ -78,5 +78,18 @@
         <%= form.date_field :weeks_engineering, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
       </div>
     </div>
+    <!-- Elevators associated with the contract -->
+    <% if contract.elevators.any? %>
+      <div class="my-5 ml-24">
+        <strong>Elevators: (<%= @contract.elevators.count %>) </strong>
+        <% contract.elevators.each_with_index do |elevator, index| %>
+          <div class="mt-2 p-2 border border-sapiBlue rounded-md">
+            <p><strong> <%= "#{index + 1}. " %> Description:</strong> <%= link_to elevator.description, contract_elevator_path(@contract, elevator), class: "text-blue-600 underline" %></p>
+            <p><strong>Type:</strong> <%= elevator.elevator_type %> </p>
+            <p><strong>Subdivision:</strong> <%= elevator.subdivision %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 <% end %>
