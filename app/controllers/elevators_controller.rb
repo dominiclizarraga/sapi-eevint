@@ -4,7 +4,8 @@ class ElevatorsController < ApplicationController
 
   # GET /elevators or /elevators.json
   def index
-    @elevators = Elevator.all
+    @contract = Contract.find(params[:contract_id])
+    @elevators = @contract.elevators
   end
 
   # GET /elevators/1 or /elevators/1.json
