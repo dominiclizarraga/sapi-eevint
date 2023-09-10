@@ -2,7 +2,7 @@
   <tbody>
     <tr class="bg-white border-b">
       <th scope="row" class="px-2 text-sm">
-        <%= contract.id %>
+        <%= contract_counter + 1 %>.
       </th>
       <td class="px-2 text-sm">
         <%= link_to contract.customer_name, contract_path(contract), class: "text-blue-500 underline underline-offset-4" %>
