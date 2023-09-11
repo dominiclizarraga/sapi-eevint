@@ -1,7 +1,8 @@
 <div class="flex justify-between items-center">
   <h1 class="font-bold text-4xl mt-4">
-      <%= link_to title.capitalize, contracts_path(work_status: title.downcase) if title.present? %>
+      <%= title.nil? ? "Search result" : title.capitalize %>
   </h1>
 </div>
-
-<%= render partial: "table_jobs", locals: { contracts: contracts } %>
+<%= turbo_frame_tag "search_results" do %>
+  <%= render partial: "table_jobs", locals: { contracts: contracts } %>
+<% end %>
