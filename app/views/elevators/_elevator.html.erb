@@ -1,28 +1,25 @@
-<div id="<%= dom_id elevator %>">
+<div id="<%= dom_id elevator %>" class="bg-white p-6 rounded-lg shadow-lg w-full mx-auto mt-10">
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Type:</strong>
-    <%= elevator.elevator_type %>
-  </p>
+  <h2 class="text-2xl font-bold mb-6 text-center">Elevator Details</h2>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= elevator.description %>
-  </p>
+  <div class="mb-5">
+    <strong class="block font-medium mb-2 text-gray-600">Type:</strong>
+    <span class="text-gray-800"><%= elevator.elevator_type %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Subdivision:</strong>
-    <%= elevator.subdivision %>
-  </p>
+  <div class="mb-5">
+    <strong class="block font-medium mb-2 text-gray-600">Description:</strong>
+    <span class="text-gray-800"><%= elevator.description %></span>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Contract:</strong>
-    <%= elevator.contract_id %>
-  </p>
+  <div class="mb-5">
+    <strong class="block font-medium mb-2 text-gray-600">Subdivision:</strong>
+    <span class="text-gray-800"><%= elevator.subdivision %></span>
+  </div>
 
-  <% if action_name != "show" %>
-    <%#= link_to "Show this elevator", contract_elevator_path(@contract, @elevator), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%#= link_to 'Edit this elevator', edit_contract_elevator_path(@contract, @elevator), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <div class="mb-5">
+    <strong class="block font-medium mb-2 text-gray-600">Contract:</strong>
+    <span class="text-gray-800"><%= elevator.contract_id %></span>
+  </div>
+  
 </div>

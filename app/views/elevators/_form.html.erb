@@ -1,9 +1,10 @@
-<%= form_with(model: [@contract, elevator], class: "contents") do |form| %>
+<%= form_with(model: [@contract, elevator], class: "contents p-5 bg-white shadow-lg rounded-md") do |form| %>
+
   <% if elevator.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(elevator.errors.count, "error") %> prohibited this elevator from being saved:</h2>
 
-      <ul>
+      <ul class="list-disc pl-5">
         <% elevator.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,25 +12,26 @@
     </div>
   <% end %>
 
-
   <div class="my-5">
-    <%= form.label :elevator_type %>
-    <%= form.select :elevator_type,[['T1'], ['T2'], 
-                                    ['T3'],['T4'],
-                                    ['T5']], class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :elevator_type, class: "block font-medium text-gray-700" %>
+    <%= form.select :elevator_type, [['T1'], ['T2'], ['T3'],['T4'], ['T5']], {}, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full transition-all duration-200 ease-in-out focus:border-blue-500" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :description, class: "block font-medium text-gray-700" %>
+    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full transition-all duration-200 ease-in-out focus:border-blue-500" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :subdivision %>
-    <%= form.text_field :subdivision, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :subdivision, class: "block font-medium text-gray-700" %>
+    <%= form.text_field :subdivision, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full transition-all duration-200 ease-in-out focus:border-blue-500" %>
   </div>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="mt-6">
+    <%= form.submit "Save", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+    <% if !@elevator.new_record? %>
+      <%= link_to "Back to elevator", contract_elevator_path(@contract, @elevator), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %> 
   </div>
+
 <% end %>
