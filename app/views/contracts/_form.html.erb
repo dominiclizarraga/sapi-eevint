@@ -38,7 +38,7 @@
 
       <div class="my-5">
         <%= form.label :work_status %>
-        <%= form.select :work_status, Contract.work_statuses.map { |ws| [ws[0]] }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
+        <%= form.select :work_status, Contract.work_statuses.map { |ws| [ws[0]] }, { include_blank: "Select a work status." }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80" %>
       </div>
       <div class="inline">
         <%= form.submit class: "rounded-lg py-3 px-5 bg-sapiBlue text-white inline-block font-medium cursor-pointer mt-6" %>
@@ -79,7 +79,7 @@
       </div>
     </div>
     <!-- Elevators associated with the contract -->
-    <% if contract.elevators.any? %>
+    <% if contract.elevators.any? && action_name != "new" && controller_name != "contracts" %>
       <div class="my-5 ml-24">
         <strong>Elevators: (<%= @contract.elevators.count %>) </strong>
         <% contract.elevators.each_with_index do |elevator, index| %>
