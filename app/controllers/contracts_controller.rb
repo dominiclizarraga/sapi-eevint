@@ -6,29 +6,16 @@ class ContractsController < ApplicationController
 
   # GET /contracts or /contracts.json
   def index
-    attrs = params[:work_status].present? ? { work_status: params[:work_status] } : {}
-    @contracts = Contract.where(attrs)
-
     # add index to speed up search
     # Postgres db has a search feature
     # explore gems for search like algolia or https://www.meilisearch.com/
     # check if the lenght arrays is zero don't show headers
-    if params[:search].present?
-      @contracts = @contracts.where("
-        customer_name ILIKE :search OR 
-        job_name ILIKE :search OR 
-        job_number::text ILIKE :search OR 
-        CASE 
-          WHEN work_status = 0 THEN 'preliminar'
-          WHEN work_status = 1 THEN 'markups'
-          WHEN work_status = 2 THEN 'final'
-          WHEN work_status = 3 THEN 'buyout'
-          WHEN work_status = 4 THEN 'others'
-          WHEN work_status = 5 THEN 'customer'
-          WHEN work_status = 6 THEN 'waiting'
-        END ILIKE :search",
-        search: "%#{params[:search].strip}%"
-      )
+    if params[:query].present?
+      @contracts = Contract.includes(:elevators).search(params)
+    elsif params[:work_status].present?
+      @contracts = Contract.includes(:elevators).where(work_status: params[:work_status])
+    else
+      @contracts = Contract.includes(:elevators).all
     end
   end
 

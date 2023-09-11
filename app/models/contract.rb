@@ -45,6 +45,23 @@ class Contract < ApplicationRecord
     
     # scope :buyout, -> { where(work_status: "buyout") }
 
+    def self.search(params)
+      base_query = self.includes(:elevators)
+      
+      return base_query if params[:query].blank?
+    
+      search_term = "%#{sanitize_sql_like(params[:query])}%"
+      work_status_value = Contract.work_statuses[params[:query]]
+    
+      if work_status_value
+        base_query.where(work_status: work_status_value)
+      else
+        base_query.where("job_number LIKE :search OR customer_name LIKE :search OR job_name LIKE :search", 
+                         search: search_term)
+      end
+    end
+    
+
     def all_elevator_types
       if elevators.any?
         elevators.map(&:elevator_type).join(', ')
