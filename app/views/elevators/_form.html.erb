@@ -29,8 +29,8 @@
 
   <div class="mt-6">
     <%= form.submit "Save", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+      <%= link_to "Back to elevator", contract_path(@contract), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% if !@elevator.new_record? %>
-      <%= link_to "Back to elevator", contract_elevator_path(@contract, @elevator), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <% end %> 
   </div>
 
