@@ -45,8 +45,8 @@
     </div>
   </div>
   <div class="ml-auto m-12">
-    <%= form_tag contracts_path, method: :get, class: "flex items-center" do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Customer, job number...", class: "rounded-l-lg border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" %>
+    <%= form_tag contracts_path, method: :get, data: { turbo_frame: "search_results", turbo_action: "advance" }, class: "flex items-center" do %>
+      <%= text_field_tag "query", nil, placeholder: "Customer, job number...", class: "rounded-l-lg border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white" %>
       <%= submit_tag "Search", class: "h-10 px-6 rounded-r-lg border border-sapiBlue bg-sapiBlue text-white font-semibold hover:bg-blue-900" %>
     <% end %>
   </div>
