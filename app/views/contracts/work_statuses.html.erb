@@ -14,6 +14,13 @@
     <% end %>
   </div>
   <div class="flex justify-center items-center w-1/2 text-sapiBlue">
-    doughnut chart https://github.com/ankane/chartkick
+    <%= pie_chart Contract.contracts_count_by_status, 
+                  donut: true,
+                  colors: ["#1a5294", "#165a85", "#114476", "#0c2e67", "#082058", "#041349"], 
+                  legend: "bottom",
+                  width: "400px",
+                  height: "400px"
+
+    %>
   </div>
 </main>

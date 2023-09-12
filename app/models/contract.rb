@@ -61,6 +61,9 @@ class Contract < ApplicationRecord
       end
     end
     
+    def self.contracts_count_by_status
+      group(:work_status).count
+    end
 
     def all_elevator_types
       if elevators.any?
