@@ -85,9 +85,18 @@ class ContractsController < ApplicationController
     @statuses = %w[preliminar markups final buyout others customer waiting]
     @contracts_by_status = {}
     @all_contracts = Contract.includes(:elevators).all.to_a
+    @contracts = @all_contracts
   
     @statuses.each do |status|
       @contracts_by_status[status] = @all_contracts.select { |contract| contract.work_status == status }
+    end
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Report planning, date: #{Time.now.strftime("%d/%m/%Y")}", template: "contracts/planning_pdf", formats: [:html], 
+        orientation: 'Landscape'
+      end
     end
   end
 

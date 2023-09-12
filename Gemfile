@@ -83,3 +83,7 @@ gem 'annotate'
 
 # chartkick for charts
 gem "chartkick"
+
+# wicked_pdf for pdf generation
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

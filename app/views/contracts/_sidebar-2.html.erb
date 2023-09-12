@@ -24,9 +24,9 @@
     <%= link_to "History", contracts_path, class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
   </div>
   <div class="flex justify-center items-center h-12 hover:border-2 border-white w-36 ml-2">
-    <%= link_to contracts_path(work_status: "markups") do %>
+    <%= link_to planning_path(format: :pdf) do %>
       <%= svg_tag "print-solid", style: "color: #1a5294; font-size: 30px; margin: 0 15px;" %>
     <% end %>
-    <%= link_to "Print report", contracts_path, class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
+    <%= link_to "Print report", planning_path(format: :pdf), class: "text-xs hover:text-sm", style: "color: #1a5294;" %>
   </div>
 </aside>

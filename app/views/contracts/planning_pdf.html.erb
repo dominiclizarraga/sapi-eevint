@@ -1,0 +1,124 @@
+<%= wicked_pdf_stylesheet_link_tag "tailwind" %>
+<%= wicked_pdf_stylesheet_link_tag "inter-font" %>
+
+<div id="contracts" class="flex mt-4">
+  <div class="mr-8 overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="text-sm text-left text-gray-500">
+      <thead class="text-xs uppercase bg-gray-400 text-black ">
+        <tr>
+          <th scope="col" class="px-2">
+              No.
+          </th>
+          <th scope="col" class="px-4 whitespace-nowrap">
+              Project name
+          </th>
+          <th scope="col" class="px-2">
+              Number
+          </th>
+          <th scope="col" class="px-2">
+              Company
+          </th>
+          <th scope="col" class="px-2">
+              Price
+          </th>
+          <th scope="col" class="px-2">
+              Description
+          </th>
+          <th scope="col" class="px-2">
+              Type
+          </th>
+          <th scope="col" class="px-2">
+              Status
+          </th>
+          <th scope="col" class="px-2">
+              By
+          </th>
+          <th scope="col" class="px-2">
+              Estim.
+          </th>
+          <th scope="col" class="px-2">
+              Eng.
+          </th>
+          <th scope="col" class="bg-white text-white px-2">
+          </th>
+          <th scope="col" class="px-2 py-4 whitespace-nowrap">
+              Job inn
+          </th>
+          <th scope="col" class="px-2">
+              Rel Req
+          </th>
+          <th scope="col" class="px-2">
+              Start
+          </th>
+          <th scope="col" class="px-2">
+              Rel DWG
+          </th>
+          <th scope="col" class="px-2">
+              Sal
+          </th>
+          <th scope="col" class="px-2">
+              WRK DAYS
+          </th>
+        </tr>
+      </thead>
+        <tbody>
+          <% @contracts.each_with_index do |contract, index| %>
+            <tr class="bg-white border-b">
+              <th scope="row" class="px-2 text-sm">
+                <%= index + 1 %>.
+              </th>
+              <td class="px-2 text-sm">
+                <%= link_to contract.customer_name, contract_path(contract), 
+                    class: "text-blue-500 underline underline-offset-4", 
+                    data: { turbo_frame: "_top" } %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.job_number %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.job_name %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= number_to_currency(contract.selling_price, precision: 0) %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.all_descriptions.truncate_words(4) %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.all_elevator_types %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.work_status.capitalize %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.created_at.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.weeks_estimate.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.entry_date.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.entry_date.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.entry_date.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.entry_date.strftime("%d/%m/%Y") %>
+              </td>
+              <td class="px-2 text-sm">
+                <%= contract.entry_date.strftime("%d/%m/%Y") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+</div>
