@@ -18,6 +18,7 @@ Delve into the design docs:
 - [Design for navbar and sidebars](https://funny-tomato-23f.notion.site/Sidebar-navbar-Design-Doc-1-658c9c1d010d44099acbd553162cd2ca?pvs=4)
 - [Enum values for some models attributes](https://funny-tomato-23f.notion.site/Enum-values-Elevator-PM-Design-Doc-2cf3e0846af7403a9cbc159118ebf2b7?pvs=4)
 - [Nested attributes for Contract model](https://funny-tomato-23f.notion.site/Nested-Attributes-Elevator-PM-Design-Doc-0edaa84249f54c63ba34a22cfa967270?pvs=4)
+- [Gems trade off](https://funny-tomato-23f.notion.site/Gems-Trade-off-Design-Doc-9167c06fb666430282817b04a1ea59c7?pvs=4)
 - [TODO list 📝](https://funny-tomato-23f.notion.site/TODO-Elevator-PM-6f7438a7f057453b823d659139211340?pvs=4)
   
 This documentation acts as a roadmap to understand SAPI's foundational principles, ensuring that future collaborators and stakeholders can seamlessly engage with, adapt, or scale the platform.
