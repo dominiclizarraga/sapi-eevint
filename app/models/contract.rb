@@ -31,6 +31,9 @@ class Contract < ApplicationRecord
 
     has_many :elevators, dependent: :destroy
 
+    has_many :change_logs
+
+
     enum work_status: {
         preliminar: 0,
         markups: 1,
@@ -43,7 +46,8 @@ class Contract < ApplicationRecord
 
     accepts_nested_attributes_for :elevators
     
-    # scope :buyout, -> { where(work_status: "buyout") }
+    after_save :log_work_status_change, if: :saved_change_to_work_status?
+
 
     def self.search(params)
       base_query = self.includes(:elevators)
@@ -80,4 +84,11 @@ class Contract < ApplicationRecord
         'No description provided'
       end
     end
+
+    private
+
+    def log_work_status_change
+      change_logs.create(old_work_status: work_status_before_last_save, new_work_status: work_status)
+    end
+
 end
