@@ -100,6 +100,11 @@ class ContractsController < ApplicationController
     end
   end
 
+  def history
+    @contracts = Contract.all
+    @change_logs = ChangeLog.order(created_at: :desc)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contract

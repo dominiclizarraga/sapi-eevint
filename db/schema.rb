@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_30_033659) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_034753) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "change_logs", force: :cascade do |t|
+    t.bigint "contract_id", null: false
+    t.string "old_work_status"
+    t.string "new_work_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contract_id"], name: "index_change_logs_on_contract_id"
+  end
 
   create_table "contracts", force: :cascade do |t|
     t.string "job_name", null: false
@@ -41,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_033659) do
     t.index ["contract_id"], name: "index_elevators_on_contract_id"
   end
 
+  add_foreign_key "change_logs", "contracts"
   add_foreign_key "elevators", "contracts"
 end

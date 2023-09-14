@@ -1,1 +1,130 @@
 <%= render partial: "sidebar-2" %>
+<div class="w-full p-4">
+
+  <div id="contracts" class="flex mt-4">
+    <div class="mr-8 overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="text-sm text-left text-gray-500">
+        <thead class="text-xs uppercase bg-gray-400 text-black ">
+          <tr>
+            <th scope="col" class="px-2">
+                No.
+            </th>
+            <th scope="col" class="px-4 whitespace-nowrap">
+                Project name
+            </th>
+            <th scope="col" class="px-2">
+                Number
+            </th>
+            <th scope="col" class="px-2">
+                Company
+            </th>
+            <th scope="col" class="px-2">
+                Price
+            </th>
+            <th scope="col" class="px-2">
+                Description
+            </th>
+            <th scope="col" class="px-2">
+                Type
+            </th>
+            <th scope="col" class="px-2">
+                Status
+            </th>
+            <th scope="col" class="px-2">
+                By
+            </th>
+            <th scope="col" class="px-2">
+                Estim.
+            </th>
+            <th scope="col" class="px-2">
+                Eng.
+            </th>
+            <th scope="col" class="bg-white text-white px-2">
+            </th>
+            <th scope="col" class="px-2 py-4 whitespace-nowrap">
+                Job inn
+            </th>
+            <th scope="col" class="px-2">
+                Rel Req
+            </th>
+            <th scope="col" class="px-2">
+                Start
+            </th>
+            <th scope="col" class="px-2">
+                Rel DWG
+            </th>
+            <th scope="col" class="px-2">
+                Sal
+            </th>
+            <th scope="col" class="px-2">
+                WRK DAYS
+            </th>
+          </tr>
+        </thead>
+          <tbody>
+            <% @contracts.each_with_index do |contract, contract_counter| %>
+              
+              <!-- Find all change logs related to this contract -->
+              <% relevant_change_logs = @change_logs.select { |log| log.contract_id == contract.id } %>
+
+              <!-- If the contract has changes, show the original status first -->
+              <% if relevant_change_logs.any? %>
+                <tr class="bg-gray-100 border-b">
+                  <!-- ... All your original columns go here ... -->
+                  <td class="px-2 text-sm">
+                    <%= contract.work_status.capitalize %>
+                  </td>
+                  <!-- ... rest of the columns ... -->
+                </tr>
+              <% end %>
+
+              <!-- Display change logs for this contract -->
+              <% relevant_change_logs.each do |change_log| %>
+                <tr class="bg-yellow-200 border-b">
+                  <!-- The row number and most columns will remain the same -->
+                  <th scope="row" class="px-2 text-sm">
+                    <%= contract_counter + 1 %>.
+                  </th>
+                  <td class="px-2 text-sm">
+                    <%= link_to contract.customer_name, contract_path(contract), 
+                        class: "text-blue-500 underline underline-offset-4", 
+                        data: { turbo_frame: "_top" } %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.job_number %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.job_name %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= number_to_currency(contract.selling_price, precision: 0) %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.all_descriptions.truncate_words(4) %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.all_elevator_types %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= change_log.new_work_status.capitalize %>
+                  </td>
+                  <!-- ... rest of the columns ... -->
+                </tr>
+              <% end %>
+
+              <!-- If there were no changes, display the contract as usual -->
+              <% unless relevant_change_logs.any? %>
+                <tr class="bg-white border-b">
+                  <!-- ... All your original columns go here ... -->
+                  <td class="px-2 text-sm">
+                    <%= contract.work_status.capitalize %>
+                  </td>
+                  <!-- ... rest of the columns ... -->
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
