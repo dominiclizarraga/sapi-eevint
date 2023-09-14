@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   get "/planning", to: 'contracts#planning'
   resources :contracts do
     resources :elevators
+    collection do
+      get :history
+    end
   end
 end
