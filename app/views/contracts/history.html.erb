@@ -63,7 +63,7 @@
         </thead>
           <tbody>
             <% @contracts.each_with_index do |contract, contract_counter| %>
-              
+
               <!-- Find all change logs related to this contract -->
               <% relevant_change_logs = @change_logs.select { |log| log.contract_id == contract.id } %>
 
@@ -108,19 +108,69 @@
                   <td class="px-2 text-sm">
                     <%= change_log.new_work_status.capitalize %>
                   </td>
-                  <!-- ... rest of the columns ... -->
+                  <td class="px-2 text-sm">
+                    <%= contract.created_at.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.weeks_estimate.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
                 </tr>
               <% end %>
 
               <!-- If there were no changes, display the contract as usual -->
               <% unless relevant_change_logs.any? %>
-                <tr class="bg-white border-b">
+                <truncate_words class="bg-white border-b">
                   <!-- ... All your original columns go here ... -->
                   <td class="px-2 text-sm">
                     <%= contract.work_status.capitalize %>
                   </td>
-                  <!-- ... rest of the columns ... -->
-                </tr>
+                  <td class="px-2 text-sm">
+                    <%= contract.created_at.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.weeks_estimate.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                </truncate_words>
               <% end %>
             <% end %>
           </tbody>
