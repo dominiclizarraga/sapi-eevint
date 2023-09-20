@@ -102,7 +102,7 @@ class ContractsController < ApplicationController
 
   def history
     @contracts = Contract.includes(:elevators).all
-    @change_logs = ChangeLog.order(created_at: :desc)
+    @change_logs = ChangeLog.order(created_at: :asc)
   end
 
   private
