@@ -101,7 +101,7 @@ class ContractsController < ApplicationController
   end
 
   def history
-    @contracts = Contract.all
+    @contracts = Contract.includes(:elevators).all
     @change_logs = ChangeLog.order(created_at: :desc)
   end
 

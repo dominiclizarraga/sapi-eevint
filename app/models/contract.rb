@@ -78,7 +78,7 @@ class Contract < ApplicationRecord
     end
 
     def all_descriptions
-      if elevators.any?
+      if elevators.size > 0
         elevators.map(&:description).join(', ')
       else
         'No description provided'
@@ -88,6 +88,7 @@ class Contract < ApplicationRecord
     private
 
     def log_work_status_change
+      # where is the contract_id?
       change_logs.create(old_work_status: work_status_before_last_save, new_work_status: work_status)
     end
 
