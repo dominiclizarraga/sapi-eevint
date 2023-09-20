@@ -39,7 +39,13 @@
 
 # db/seeds.rb
 
+# db/seeds.rb
+
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+
 # Delete all existing records from the tables
+ChangeLog.delete_all
 Elevator.delete_all
 Contract.delete_all
 
@@ -71,7 +77,28 @@ num = 1
     weeks_estimate: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     weeks_engineering: Faker::Date.between(from: Date.today, to: 1.year.from_now)
   )
-  puts "Creating Contract... with id #{contract.id}"
+
+  # Work on change logs for work_status
+  num_changes = rand(2..3)
+  previous_status = contract.work_status
+
+  num_changes.times do
+    new_status = Contract.work_statuses.keys.reject { |status| status == previous_status }.sample
+
+    # Update the contract's work_status and save
+    contract.update(work_status: new_status)
+
+    # Create a ChangeLog for the work_status change
+    ChangeLog.create(
+      contract: contract,
+      old_work_status: previous_status,
+      new_work_status: new_status
+    )
+
+    # Set the current status as the previous status for the next iteration
+    previous_status = new_status
+  end
+
   elevators = []
 
   rand(0..7).times do
@@ -80,14 +107,11 @@ num = 1
       description: Faker::Lorem.sentence,
       subdivision: Faker::Address.community
     )
-    # puts "Creating Elevator... with id #{contract.elevator.id}"
     elevators << elevator.id
-
   end
+  
   puts "#{num}. Contract ID: #{contract.id}, Elevator IDs: #{elevators.join(', ')}"
   num += 1
 end
 
-
-
-puts "Seed data created successfully! #{Contract.count} contracts and #{Elevator.count} elevators created."
+puts "Seed data created successfully! #{Contract.count} contracts, #{Elevator.count} elevators, and #{ChangeLog.count} change logs created."
