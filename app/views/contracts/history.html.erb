@@ -106,7 +106,7 @@
                   <td class="px-2 text-sm">
                     <%= contract.eng_required_date_at.strftime("%d/%m/%Y") %>
                   </td>
-                  <td class="px-2 text-sm">
+                  <td class="px-2 text-sm bg-white">
                   </td>
                   <td class="px-2 text-sm">
                     <%= contract.entry_date.strftime("%d/%m/%Y") %>
@@ -122,6 +122,9 @@
                   </td>
                   <td class="px-2 text-sm">
                     <%= contract.entry_date.strftime("%d/%m/%Y") %>
+                  </td>
+                  <td class="px-2 text-sm">
+                    <%= (contract.weeks_engineering - contract.entry_date).to_i / 7 %>
                   </td>
                 </tr>
               <% end %>
