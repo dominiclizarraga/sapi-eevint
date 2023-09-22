@@ -88,7 +88,7 @@ class Contract < ApplicationRecord
     private
 
     def log_work_status_change
-      # where is the contract_id?
+      # don't need id since we are working with a ActiveRecord association
       change_logs.create(old_work_status: work_status_before_last_save, new_work_status: work_status)
     end
 
