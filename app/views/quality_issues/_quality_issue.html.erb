@@ -1,0 +1,23 @@
+<div id="<%= dom_id quality_issue %>" class="bg-white p-6 rounded-lg shadow-lg w-full mx-auto mt-10 mr-4">
+  <h2 class="text-2xl font-bold mb-6 text-center"><%= quality_issue.contract.customer_name %></h2>
+
+  <div class="flex mb-2 items-center">
+    <span class="font-medium mb-2 text-gray-600 w-44">Contract Number:</span>
+    <span class="text-blue-600"><%= link_to quality_issue.contract.job_number, contract_path(quality_issue.contract) %></span>
+  </div>
+
+  <div class="flex mb-2 items-center">
+    <span class="font-medium mb-2 text-gray-600 w-44">Date:</span>
+    <span class="text-gray-800 w-32"><%= quality_issue.date %></span>
+  </div>
+
+  <div class="flex mb-2 items-center">
+    <span class=" font-medium mb-2 text-gray-600 w-44">Description:</span>
+    <span class="text-gray-800 w-32"><%= quality_issue.description %></span>
+  </div>
+
+  <div class="flex mb-2 items-center">
+    <strong class="font-medium mb-2 text-gray-600 w-44">Severity:</strong>
+    <span class="text-gray-800 w-32"><%= quality_issue.severity %></span>
+  </div>
+</div>
