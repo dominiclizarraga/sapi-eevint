@@ -1,4 +1,4 @@
-<div id="<%= dom_id quality_issue %>" class="bg-white p-6 rounded-lg shadow-lg w-full mx-auto mt-10 mr-4">
+<div id="<%= dom_id quality_issue %>" class="bg-white p-6 rounded-lg shadow-lg mt-10 mr-4">
   <h2 class="text-2xl font-bold mb-6 text-center"><%= quality_issue.contract.customer_name %></h2>
 
   <div class="flex mb-2 items-center">
@@ -20,4 +20,11 @@
     <strong class="font-medium mb-2 text-gray-600 w-44">Severity:</strong>
     <span class="text-gray-800 w-32"><%= quality_issue.severity %></span>
   </div>
+
+  <div class="flex items-center justify-between">
+    <%= link_to 'Edit', edit_quality_issue_path(quality_issue), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded' %>
+
+    <%= button_to 'Delete', quality_issue_path(quality_issue), method: :delete, data: { confirm: 'Are you sure?' }, class: 'bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded' %>
+  </div>
+
 </div>
