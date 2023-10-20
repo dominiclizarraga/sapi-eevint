@@ -5,7 +5,9 @@
 #  id          :bigint           not null, primary key
 #  date        :date
 #  description :text
+#  resolved_at :date
 #  severity    :integer
+#  status      :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  contract_id :bigint           not null
@@ -26,5 +28,8 @@ class QualityIssue < ApplicationRecord
   validates :severity, presence: true
   
   enum severity: { low: 0, medium: 1, high: 2, critical: 3 }
+
+  enum status: { open: 0, resolved: 1, pending: 2 }
+
 end
 
