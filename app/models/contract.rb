@@ -31,7 +31,7 @@ class Contract < ApplicationRecord
 
     has_many :elevators, dependent: :destroy
 
-    has_many :change_logs
+    has_many :change_logs, dependent: :destroy
     
     has_many :quality_issues
 
