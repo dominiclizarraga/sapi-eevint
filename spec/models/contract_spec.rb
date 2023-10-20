@@ -47,7 +47,13 @@ RSpec.describe Contract, type: :model do
   end
 
   describe 'Associations' do
-    it { should have_many(:elevators) }
+    let(:contract) { FactoryBot.create(:contract) }
+    let!(:elevator_1) { FactoryBot.create(:elevator, contract: contract) }
+    let!(:elevator_2) { FactoryBot.create(:elevator, contract: contract) }
+
+    it 'should have many elevators' do
+      expect(contract.elevators).to include(elevator_1, elevator_2)
+    end
   end
 
   describe 'Nested Attributes' do
