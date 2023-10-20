@@ -19,8 +19,9 @@
 #
 FactoryBot.define do
   factory :change_log do
-    contract { nil }
-    old_work_status { "MyString" }
-    new_work_status { "MyString" }
+    contract
+    old_work_status { "MyOldStatus" }
+    new_work_status { "MyNewStatus" }
   end
 end
+
