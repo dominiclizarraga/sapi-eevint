@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 
   get 'charts', to: 'charts#index'
 
+  resources :quality_issues
 
 end
