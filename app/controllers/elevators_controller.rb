@@ -40,7 +40,7 @@ class ElevatorsController < ApplicationController
   def update
     respond_to do |format|
       if @elevator.update(elevator_params)
-        format.html { redirect_to contract_path(@contract, @elevator), notice: "Elevator was successfully updated." }
+        format.html { redirect_to contract_elevator_path(@contract, @elevator), notice: "Elevator was successfully updated." }
         format.json { render :show, status: :ok, location: @elevator }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class ElevatorsController < ApplicationController
     @elevator.destroy
 
     respond_to do |format|
-      format.html { redirect_to contract_path(@contract), notice: "Elevator was successfully destroyed." }
+      format.html { redirect_to contract_elevators_path(@contract), notice: "Elevator was successfully destroyed." }
       format.json { head :no_content }
     end
   end
