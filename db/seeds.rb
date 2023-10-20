@@ -7,44 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 # db/seeds.rb
 
-# Create Contracts
-# contract1 = Contract.create(
-#   job_name: "Project A",
-#   job_number: "123",
-#   actual_end_at: Date.new(2023, 6, 30),
-#   actual_start_at: Date.new(2023, 5, 1),
-#   customer_name: "ABC Corp",
-#   eng_required_date_at: Date.new(2023, 4, 15),
-#   selling_price: 50000.0,
-#   work_status: 1,
-#   entry_date: Date.new(2023, 4, 1),
-#   weeks_estimate: rand(1..10).days.from_now.to_date,
-#   weeks_engineering: rand(1..10).days.from_now.to_date
-# )
-
-# # Create Elevators associated with Contract
-# elevator1 = Elevator.create(
-#   elevator_type: 1,
-#   description: "Passenger Elevator",
-#   subdivision: "Tower A",
-#   contract: contract1
-# )
-
-# elevator2 = Elevator.create(
-#   elevator_type: 2,
-#   description: "Freight Elevator",
-#   subdivision: "Warehouse",
-#   contract: contract1
-# )
-
-# db/seeds.rb
-
-# db/seeds.rb
-
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-
 # Delete all existing records from the tables
+QualityIssue.delete_all
 ChangeLog.delete_all
 Elevator.delete_all
 Contract.delete_all
@@ -56,6 +20,14 @@ ELEVATOR_TYPES = {
   T3: 2,
   T4: 3,
   T5: 4
+}.freeze
+
+# Severities for QualityIssue
+SEVERITIES = {
+  low: 0,
+  medium: 1,
+  high: 2,
+  critical: 3
 }.freeze
 
 # count
@@ -79,25 +51,25 @@ num = 1
   )
 
   # Work on change logs for work_status
-  num_changes = rand(2..3)
-  previous_status = contract.work_status
+  # num_changes = rand(2..3)
+  # previous_status = contract.work_status
 
-  num_changes.times do
-    new_status = Contract.work_statuses.keys.reject { |status| status == previous_status }.sample
+  # num_changes.times do
+  #   new_status = Contract.work_statuses.keys.reject { |status| status == previous_status }.sample
 
     # Update the contract's work_status and save
-    contract.update(work_status: new_status)
+    # contract.update(work_status: new_status)
 
     # Create a ChangeLog for the work_status change
-    ChangeLog.create(
-      contract: contract,
-      old_work_status: previous_status,
-      new_work_status: new_status
-    )
+    # ChangeLog.create(
+    #   contract: contract,
+    #   old_work_status: previous_status,
+    #   new_work_status: new_status
+    # )
 
     # Set the current status as the previous status for the next iteration
-    previous_status = new_status
-  end
+    # previous_status = new_status
+  # end
 
   elevators = []
 
@@ -109,9 +81,18 @@ num = 1
     )
     elevators << elevator.id
   end
+
+  # Create Quality Issues for the Contract
+  rand(0..2).times do
+    quality_issue = contract.quality_issues.create(
+      date: Faker::Date.between(from: 2.years.ago, to: Date.today),
+      description: Faker::Lorem.paragraph(sentence_count: 2),
+      severity: SEVERITIES.values.sample
+    )
+  end
   
   puts "#{num}. Contract ID: #{contract.id}, Elevator IDs: #{elevators.join(', ')}"
   num += 1
 end
 
-puts "Seed data created successfully! #{Contract.count} contracts, #{Elevator.count} elevators, and #{ChangeLog.count} change logs created."
+puts "Seed data created successfully! #{Contract.count} contracts, #{Elevator.count} elevators, #{ChangeLog.count} change logs, and #{QualityIssue.count} quality issues created."
