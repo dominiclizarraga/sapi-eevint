@@ -1,0 +1,45 @@
+<%= render partial: "/contracts/sidebar-2" %>
+
+<div class="container mx-auto mt-5">
+  <h2 class="font-bold text-2xl mb-4"> Quality Issue Details</h2>
+  
+  <div class="my-5">
+    <strong>Contract number:</strong>
+    <p><%= link_to @quality_issue.contract.job_number, contract_path(@quality_issue.contract), class: 'text-blue-700 ' %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Customer name:</strong>
+    <p><%= @quality_issue.contract.customer_name %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Date of quality issue:</strong>
+    <p><%= @quality_issue.date.strftime("%d/%m/%Y") %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Description:</strong>
+    <p><%= @quality_issue.description %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Resolved At:</strong>
+    <p><%= @quality_issue.resolved_at ? @quality_issue.resolved_at.strftime("%d/%m/%Y") : "Not Resolved" %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Severity:</strong>
+    <p><%= @quality_issue.severity.humanize %></p>
+  </div>
+
+  <div class="my-5">
+    <strong>Status:</strong>
+    <p><%= @quality_issue.status.humanize %></p>
+  </div>
+
+  <div class="actions mt-10">
+    <%= link_to 'Edit', edit_quality_issue_path(@quality_issue), class: 'bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded' %>
+    <%= link_to 'Back', quality_issues_path, class: 'ml-3 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded' %>
+  </div>
+</div>

@@ -1,6 +1,9 @@
 class QualityIssuesController < ApplicationController
   before_action :set_quality_issue, only: [:show, :edit, :update, :destroy]
 
+  before_action :set_contract, only: [:show, :edit, :update]
+
+
   # GET /quality_issues
   def index
     # @contract = Contract.find(params[:contract_id]) # or however you're setting it
@@ -30,7 +33,8 @@ class QualityIssuesController < ApplicationController
 
   # GET /quality_issues/:id/edit
   def edit
-    @contracts = Contract.all # This is to populate the dropdown for job_number and customer_name
+      @contract = Contract.find(params[:contract_id])
+  @quality_issue = @contract.quality_issues.new
   end
 
   # PATCH/PUT /quality_issues/:id
@@ -57,5 +61,9 @@ class QualityIssuesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def quality_issue_params
       params.require(:quality_issue).permit(:contract_id, :date, :description, :severity)
+    end
+
+    def set_contract
+      # @contract = Contract.find(params[:contract_id])
     end
 end

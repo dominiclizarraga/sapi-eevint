@@ -1,0 +1,52 @@
+<%= form_with(model: @quality_issue, local: true) do |form| %>
+  <% if @quality_issue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quality_issue.errors.count, "error") %> prohibited this quality_issue from being saved:</h2>
+      <ul>
+        <% @quality_issue.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :contract_id, "Contract number" %>
+    <%= form.collection_select :contract_id, 
+                               Contract.all, 
+                               :id, 
+                               :job_number, 
+                               include_blank_option(form.object), 
+                               class: 'block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80' %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :date %>
+    <%= form.date_field :date, class: 'block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80' %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80' %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :severity %>
+    <%= form.select :severity, QualityIssue.severities.keys.map { |s| [s.humanize, s] }, {}, class: 'block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80' %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :status %>
+    <%= form.select :status, ['Open', 'Pending', 'Resolved'], {}, class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80" %>
+  </div>
+  
+  <div class="my-5">
+    <%= form.label :resolved_at %>
+    <%= form.date_field :resolved_at, class: "block shadow rounded-md border border-gray-200 px-3 py-2 mt-2 w-80" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: 'bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded' %>
+  </div>
+
+<% end %>

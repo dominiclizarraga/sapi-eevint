@@ -11,9 +11,8 @@ Rails.application.routes.draw do
       get :history
     end
   end
-
+  
   get 'charts', to: 'charts#index'
-
+  
   resources :quality_issues
-
 end

@@ -29,7 +29,7 @@ class QualityIssue < ApplicationRecord
   
   enum severity: { low: 0, medium: 1, high: 2, critical: 3 }
 
-  enum status: { open: 0, resolved: 1, pending: 2 }
+  enum status: { open: 0, pending: 1, resolved: 2 }
 
 end
 
