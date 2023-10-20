@@ -20,9 +20,10 @@
 #
 FactoryBot.define do
   factory :quality_issue do
-    contract { nil }
-    date { "2023-10-18" }
-    description { "MyText" }
-    severity { 1 }
+    contract { association(:contract) }
+    date { Faker::Date.between(from: 2.years.ago, to: Date.today) }
+    description { Faker::Lorem.paragraph }
+    severity { QualityIssue.severities.keys.sample }
   end
 end
+

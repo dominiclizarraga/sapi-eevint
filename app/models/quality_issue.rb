@@ -20,7 +20,11 @@
 #
 class QualityIssue < ApplicationRecord
   belongs_to :contract
-
+  
+  validates :date, presence: true
+  validates :description, presence: true
+  validates :severity, presence: true
+  
   enum severity: { low: 0, medium: 1, high: 2, critical: 3 }
-
 end
+

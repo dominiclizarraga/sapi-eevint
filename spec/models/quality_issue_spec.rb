@@ -21,5 +21,33 @@
 require 'rails_helper'
 
 RSpec.describe QualityIssue, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'associations' do
+    it 'belongs to a contract' do
+      contract = FactoryBot.create(:contract)
+      quality_issue = FactoryBot.create(:quality_issue, contract: contract)
+      expect(quality_issue.contract).to eq(contract)
+    end
+  end
+
+  describe 'validations' do
+    it 'validates presence of date' do
+      quality_issue = QualityIssue.new(date: nil)
+      expect(quality_issue.valid?).to be_falsey
+      expect(quality_issue.errors[:date]).to include("can't be blank")
+    end
+
+    it 'validates presence of description' do
+      quality_issue = QualityIssue.new(description: nil)
+      expect(quality_issue.valid?).to be_falsey
+      expect(quality_issue.errors[:description]).to include("can't be blank")
+    end
+
+    it 'validates presence of severity' do
+      quality_issue = QualityIssue.new(severity: nil)
+      expect(quality_issue.valid?).to be_falsey
+      expect(quality_issue.errors[:severity]).to include("can't be blank")
+    end
+  end
+
 end
+
