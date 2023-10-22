@@ -49,7 +49,26 @@ RSpec.describe QualityIssue, type: :model do
       expect(quality_issue.valid?).to be_falsey
       expect(quality_issue.errors[:severity]).to include("can't be blank")
     end
-  end
 
+    # If resolved_at is supposed to be mandatory (based on application requirements)
+    it 'validates presence of resolved_at' do
+      quality_issue = QualityIssue.new(resolved_at: nil)
+      expect(quality_issue.valid?).to be_falsey
+      expect(quality_issue.errors[:resolved_at]).to include("can't be blank")
+    end
+
+    # If status has default value, we can check for its default
+    it 'has default status value' do
+      quality_issue = QualityIssue.new
+      expect(quality_issue.status).to eq("open") # Assuming 0 is the default value
+    end
+
+    # If contract_id is mandatory (it should be since it's a foreign key)
+    it 'validates presence of contract_id' do
+      quality_issue = QualityIssue.new(contract_id: nil)
+      expect(quality_issue.valid?).to be_falsey
+      expect(quality_issue.errors[:contract_id]).to include("can't be blank")
+    end
+  end
 end
 
