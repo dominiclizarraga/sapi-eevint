@@ -1,7 +1,7 @@
 class QualityIssuesController < ApplicationController
   before_action :set_quality_issue, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_contract, only: [:show, :edit, :update]
+  # before_action :set_contract, only: [:show, :edit, :update]
 
 
   # GET /quality_issues
@@ -33,8 +33,6 @@ class QualityIssuesController < ApplicationController
 
   # GET /quality_issues/:id/edit
   def edit
-      @contract = Contract.find(params[:contract_id])
-  @quality_issue = @contract.quality_issues.new
   end
 
   # PATCH/PUT /quality_issues/:id

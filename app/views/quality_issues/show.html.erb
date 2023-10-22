@@ -1,45 +1,18 @@
 <%= render partial: "/contracts/sidebar-2" %>
 
-<div class="container mx-auto mt-5">
-  <h2 class="font-bold text-2xl mb-4"> Quality Issue Details</h2>
-  
-  <div class="my-5">
-    <strong>Contract number:</strong>
-    <p><%= link_to @quality_issue.contract.job_number, contract_path(@quality_issue.contract), class: 'text-blue-700 ' %></p>
-  </div>
+<div class="mx-auto w-1/3 mt-5">
 
-  <div class="my-5">
-    <strong>Customer name:</strong>
-    <p><%= @quality_issue.contract.customer_name %></p>
-  </div>
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
 
-  <div class="my-5">
-    <strong>Date of quality issue:</strong>
-    <p><%= @quality_issue.date.strftime("%d/%m/%Y") %></p>
-  </div>
+  <%= render @quality_issue %>
 
-  <div class="my-5">
-    <strong>Description:</strong>
-    <p><%= @quality_issue.description %></p>
-  </div>
-
-  <div class="my-5">
-    <strong>Resolved At:</strong>
-    <p><%= @quality_issue.resolved_at ? @quality_issue.resolved_at.strftime("%d/%m/%Y") : "Not Resolved" %></p>
-  </div>
-
-  <div class="my-5">
-    <strong>Severity:</strong>
-    <p><%= @quality_issue.severity.humanize %></p>
-  </div>
-
-  <div class="my-5">
-    <strong>Status:</strong>
-    <p><%= @quality_issue.status.humanize %></p>
-  </div>
-
-  <div class="actions mt-10">
-    <%= link_to 'Edit', edit_quality_issue_path(@quality_issue), class: 'bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded' %>
-    <%= link_to 'Back', quality_issues_path, class: 'ml-3 bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded' %>
+  <div class="mt-4">
+    <%= link_to 'Edit this QA', edit_quality_issue_path(@quality_issue), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back ↩️', quality_issues_path, class: "bg-gray-100 ml-2 rounded-lg py-3 px-5 inline-block font-medium" %>
+    <div class="inline-block ml-2">
+      <%= button_to 'Destroy', quality_issue_path(@quality_issue), method: :delete, class: "text-white bg-red-500 mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <%= render partial: "/contracts/sidebar-2" %>
 
-<div class="mx-auto ml-8 mt-4 w-full">
+<div class="mx-auto ml-8 mt-4">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
@@ -11,5 +11,7 @@
 
   <div class="flex flex-wrap items-center">
     <%= render @quality_issues %>
+
+
   </div>
 </div>
