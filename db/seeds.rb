@@ -87,7 +87,9 @@ num = 1
     quality_issue = contract.quality_issues.create(
       date: Faker::Date.between(from: 2.years.ago, to: Date.today),
       description: Faker::Lorem.paragraph(sentence_count: 2),
-      severity: SEVERITIES.values.sample
+      severity: SEVERITIES.values.sample,
+      status: QualityIssue.statuses.values.sample,
+      resolved_at: [Faker::Date.between(from: 2.years.ago, to: Date.today)].sample # Randomly set some as resolved
     )
   end
   
