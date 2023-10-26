@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :elevators
     collection do
       get :history
+      get :modal
     end
   end
   
