@@ -1,15 +1,20 @@
 <%= render partial: "sidebar-2" %>
 
 <%= turbo_frame_tag "modal" do %>
-  <div class="fixed z-10 w-full h-full top-0 left-0 bg-black bg-opacity-40"></div>
-  <div class="fixed z-20 w-1/2 h-auto top-28 left-48 bg-white overflow-y-scroll shadow flex flex-col flex-wrap duration-300 p-5">
-    <h2 class="font-bold text-xl mb-4">First, please select a contract you'd like to modify: </h2>
-      <ul class="grid grid-cols-2 gap-4">
-        <% Contract.all.each do |contract| %>
-          <li>
-            <%= link_to contract.job_name, edit_contract_path(contract), class: "text-blue-500 hover:underline", data: { turbo_frame: "_top" } %>
-          </li>
-        <% end %>
-      </ul>
+  <div data-controller="modal">
+    <div data-action="click->modal#close" class="fixed z-10 w-full h-full top-0 left-0 bg-black bg-opacity-40"></div>
+    <div data-modal-target="list" class="fixed z-20 w-1/2 h-auto top-32 left-56 bg-white overflow-y-scroll shadow flex flex-col flex-wrap duration-300 p-5">
+      <div class="flex justify-between"> 
+        <h2 class="font-bold text-xl mb-4">First, please select a contract you'd like to modify: </h2>
+        <p data-action="click->modal#close">❌</p>
+      </div>
+        <ul class="grid grid-cols-2 gap-4">
+          <% Contract.all.each do |contract| %>
+            <li>
+              <%= link_to contract.job_name, edit_contract_path(contract), class: "text-blue-500 hover:underline", data: { turbo_frame: "_top" } %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
   </div>
 <% end %>
