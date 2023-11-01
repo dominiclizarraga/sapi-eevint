@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'contracts#home'
 
   get "/work_statuses", to: 'contracts#work_statuses'

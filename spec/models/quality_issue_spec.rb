@@ -7,7 +7,7 @@
 #  description :text
 #  resolved_at :date
 #  severity    :integer
-#  status      :integer          default(0)
+#  status      :integer          default("open")
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  contract_id :bigint           not null
