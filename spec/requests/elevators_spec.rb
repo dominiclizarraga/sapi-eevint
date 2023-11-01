@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "Elevators", type: :request do
+
+  before do
+    user = FactoryBot.create(:user)
+    # user.confirm # if you are using the confirmable module
+    sign_in user
+  end
+  
   describe "GET /contracts/:contract_id/elevators" do
     it "should return a 200 response" do
       contract = FactoryBot.create(:contract)

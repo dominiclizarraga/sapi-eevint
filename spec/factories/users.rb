@@ -19,6 +19,18 @@
 #
 FactoryBot.define do
   factory :user do
-    
+    email { Faker::Internet.email }
+    password {"password"}
+    password_confirmation { "password" }
+    admin { false }
   end
+
+  # First user created via `rails c`
+  # User.create!(email: "user@user.com", password: "pasword")
+
+  # factory :admin do
+  #   email {"test@admin.com"}
+  #   password {"password"}
+  #   admin {true}
+  # end
 end

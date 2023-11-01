@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "Contracts", type: :request do
+
+  # May not be needed
+  # include ControllerMacros
+  before do
+    user = FactoryBot.create(:user)
+    # user.confirm # if you are using the confirmable module
+    sign_in user
+  end
+
   describe "GET/contracts" do
     it "should return a 200 response" do
       get contracts_path
