@@ -2,27 +2,37 @@
   <%= image_tag("logo_home.png", style: "width: 540px;") %>
   <div class="flex justify-around mt-24 w-full">
     <div class="mr-4 text-lg">
-      <%= svg_tag "chart-gantt-solid", style: "color: #1a5294; font-size: 80px; margin: 0 15px;" %>
-      <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">STATUS</p>
+      <%= link_to new_user_registration_path do %>
+        <%= svg_tag "chart-gantt-solid", style: "color: #1a5294; font-size: 80px; margin: 0 15px;" %>
+        <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">STATUS</p>
+      <% end %>
     </div>
     <div class="mr-4 text-lg">
-      <%= svg_tag "calendar", style: "color: #1a5294; font-size: 80px; margin: 0 25px;" %>
-      <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">PLANNING</p>
+      <%= link_to new_user_registration_path do %>
+        <%= svg_tag "calendar", style: "color: #1a5294; font-size: 80px; margin: 0 25px;" %>
+        <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">PLANNING</p>
+      <% end %>
     </div>
     <div class="mr-4 text-lg">
-      <%= svg_tag "chart-simple-solid", style: "color: #1a5294; font-size: 80px; margin: 0 15px;" %>
-      <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">CHARTS</p>
+      <%= link_to new_user_registration_path do %>
+        <%= svg_tag "chart-simple-solid", style: "color: #1a5294; font-size: 80px; margin: 0 15px;" %>
+        <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">CHARTS</p>
+      <% end %>
     </div>
     <div class="mr-4 text-lg">
-      <%= svg_tag "check-to-slot-solid", style: "color: #1a5294; font-size: 80px; margin: 0 18px;" %>
-      <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">QUALITY</p>
+      <%= link_to new_user_registration_path do %>
+        <%= svg_tag "check-to-slot-solid", style: "color: #1a5294; font-size: 80px; margin: 0 18px;" %>
+        <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">QUALITY</p>
+      <% end %>
     </div>
     <div class="mr-4 text-lg">
-      <%= svg_tag "people-arrows-solid", style: "color: #1a5294; font-size: 80px; margin: 0 18px;" %>
-      <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">W. FORCE</p>
+      <%= link_to new_user_registration_path do %>
+        <%= svg_tag "people-arrows-solid", style: "color: #1a5294; font-size: 80px; margin: 0 18px;" %>
+        <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">W. FORCE</p>
+      <% end %>
     </div>
     <div class="mr-4 text-lg hover:text-xl">
-      <%= link_to work_statuses_path do %>
+      <%= link_to new_user_registration_path do %>
         <%= svg_tag "robot-solid", style: "color: #1a5294; font-size: 80px; margin: 0 18px;" %>
         <p class="mt-2 text-center text-blue-700;" style="color:#1a5294;">SIGN UP</p>
       <% end %>
